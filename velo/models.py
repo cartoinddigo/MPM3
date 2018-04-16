@@ -53,7 +53,7 @@ class Player(models.Model):
     def pvelo(self):
         """Calcul du potentiel vélo"""
         self.pv = (float(self.ctxgeolib)*int(self.nbsal))/100
-        self.pv = round(self.pv, 2)
+        self.pv = ceil(self.pv)
         return self.pv
 
     def paccess(self):
