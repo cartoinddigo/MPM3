@@ -1,0 +1,18 @@
+{% extends 'velo/index.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if players.published_date %}
+            <div class="date">
+                {{ players.published_date }}
+            </div>
+        {% endif %}
+        <p>Nom de l'entreprise : <span>{{ players.entrep}}</span></p>
+		<p>nb sal : {{ players.nbsal}}</p>
+		<p>Context géo : {{ players.ctxgeolib}}</p>
+        <p>potentiel velo : {{players.pvelo}}</p>
+		<p>Motivation direction : {{ players.g1}} %</p>
+		<p>Motivation des salariés : {{ players.g2}} %</p>
+		<p>Avancement du PDE : {{ players.g3}} %</p>
+    </div>
+{% endblock %}
