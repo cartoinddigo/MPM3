@@ -9,10 +9,19 @@
         {% endif %}
         <p>Nom de l'entreprise : <span>{{ players.entrep}}</span></p>
 		<p>nb sal : {{ players.nbsal}}</p>
-		<p>Context géo : {{ players.ctxgeolib}}</p>
+		<p>Context géo : {{ players.ctxgeolib}}. ctx à {{players.vctx}}</p>
         <p>potentiel velo : {{players.pvelo}}</p>
+        <p>Estimation du nombre de cyclistes en année 1 : {{players.evocycliste}}</p>
+        <p>Fréquence de pratique : {{players.freq}} % des jours travaillés.</p>
+        <p>Fréquence de pratique pondéré en fonction de l'accessibilité = {{players.paccess}}</p>
+        <p>Nombre d'AR réalisés par an par l'ensemble des cyclistes : {{players.evoar}}</p>
+        <p>Nombre d'AR ponderées : {{players.evoarp}}</p>
+<br>
 		<p>Motivation direction : {{ players.g1}} %</p>
+        <p>Recomendation Direction : <span>{{ players.recodir}}</span></p>
 		<p>Motivation des salariés : {{ players.g2}} %</p>
+        <p>Recomendation Salariés : <span>{{ players.recosal}}</span></p>
 		<p>Avancement du PDE : {{ players.g3}} %</p>
+        <p>Recomendation PDE : <span>{{ players.recopde}}</span></p>
     </div>
 {% endblock %}

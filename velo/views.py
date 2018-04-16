@@ -22,9 +22,10 @@ def newplayer(request):
 		if form.is_valid():
 			players = form.save(commit=False)
 			players.published_date = timezone.now()
+			players.vctx = players.varctx()
 			players.save()
-			return redirect(reverse('detailsplayer', kwargs={'pk':players.pk}))
+			return redirect('detailsplayer', pk=players.pk)
 	else:
 		form = PlayerForm()
-		return render(request, 'velo/newplayer.html', {'form':form})
+	return render(request, 'velo/newplayer.html', {'form':form})
 
