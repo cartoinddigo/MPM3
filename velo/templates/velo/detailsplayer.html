@@ -7,13 +7,15 @@
                 {{ players.published_date }}
             </div>
         {% endif %}
+        
+        <p>Bonjour <span class="big">{{ players.nom}} !</span>  <br>Sur {{ players.nbsal}} salariés, votre entreprise {{palyers.entrep}} peux compter sur environ <span class = "big">{{players.pvelo}}</span> cyclistes.</p>
+        <hr>
         <h1>IKV</h1>
-        <p>Bonjour <span class="big">{{ players.entrep}}</span>,</p>
-		<p>Sur {{ players.nbsal}} salariés, votre entreprise peux compter sur environ <span class = "big">{{players.pvelo}}</span>cyclistes.</p>
-
-        <p>Selon nos estimations, la mise en place de l'IKV vous permetrait d'élever ce chiffre à <span class = "big">{{players.evocycliste}}</span> la première année !</p>
-        <p>Cela représente près de {{players.evoar}} trajet Domicile / Travail réalisé à vélo. ({{players.evoarp}}, pondéré par l'accessibilité à votre site)</p>
-<br>
+        <p>Selon nos estimations, la mise en place de l'IKV vous permetrait d'élever ce chiffre à <br><span class = "big">{{players.evocycliste}} cyclistes</span> la première année !</p>
+        <p>Cela représente près de {{players.evoar}} trajets Domicile / Travail réalisés à vélo.<br> ({{players.evoarp}} trajets, en fonction de l'accessibilité à votre site) pour un total de </p>
+        <p><span class="big">{{players.distance}} kilomètres</span> parcourus en 12 mois.</p>
+        <p>soit un cout total de <span class="big">{{players.cout}} €</span> hors plafond</p>
+        <hr>
         <h1>Evaluation du PDE</h1>
 		<p>Motivation direction : {{ players.g1}} %</p>
         <p>Recomendation Direction : <span>{{ players.recodir}}</span></p>

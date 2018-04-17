@@ -23,7 +23,7 @@ class Player(models.Model):
 
 
 
-    entrep = models.CharField(max_length=250,verbose_name = "Le nom de votre entreprise",)
+    entrep = models.CharField(default = 'votre entreprise', max_length=250,verbose_name = "Le nom de votre entreprise",)
     nom = models.CharField(default = 'votre nom', max_length=250,verbose_name = "votre nom",)
     adresse = models.CharField(max_length=250,verbose_name = "Votre adresse",)
     ville = models.CharField(max_length=250,verbose_name = "Votre ville",)
@@ -33,7 +33,7 @@ class Player(models.Model):
     freq = models.FloatField(default = 0.65, verbose_name = "Fréquence moyenne de la pratique des cycliste (en pourcentages de jours travaillés)",)
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
     access = models.TextField(default='bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",)
-    ctxgeolib = models.TextField(choices=CTX_GEO_LIB,verbose_name = "Contexte geographique")
+    ctxgeolib = models.TextField(default='Centre-ville',choices=CTX_GEO_LIB,verbose_name = "Contexte geographique")
 
     g1 = models.IntegerField(default=0,verbose_name = "Motivation de la direction de l’entreprise")
     g2 = models.IntegerField(default=0,verbose_name = "Motivation des salariés")
@@ -68,19 +68,53 @@ class Player(models.Model):
         return self.pa
 
     def evocycliste(self):
+        """fonction d'evaluation de l'evolution du nombre de cyclistes"""
         self.evocycl = self.pvelo() *(1+0.5)
         self.evocycl = ceil(self.evocycl)
         return self.evocycl
 
     def evoar(self):
+        """fonction d'evaluation du nombre de trajets DT"""
         self.evoar = self.evocycliste()*218*self.freq
         self.evoar = ceil(self.evoar)
         return self.evoar
 
     def evoarp(self):
+        """fonction d'evaluation ponderee du nombre de trajets DT"""
         self.evoarp = self.evocycliste()*218*self.paccess()
         self.evoarp = ceil(self.evoarp)
         return self.evoarp
+
+    def distance(self):
+        """Fonction d'evaluation de la distance moyenne parcourue"""
+        if self.ctxgeolib == 4.9:
+            self.distance = 3 * self.evoarp
+        elif self.ctxgeolib == 1.7:
+            self.distance = 4 * self.evoarp
+        elif self.ctxgeolib == 1.5:
+            self.distance = 4 * self.evoarp
+        else:
+            self.distance = 5 * self.evoarp
+        return self.distance
+
+    def km(self):
+        """Recuperation des distances moyennes selon le ctx geo"""
+        if self.ctxgeolib == '4.9':
+            self.km = 3
+        elif self.ctxgeolib == '1.7':
+            self.km = 4
+        elif self.ctxgeolib == '1.5':
+            self.km = 4
+        else:
+            self.km = 5
+        return self.km
+
+    def cout(self):
+        """Fonction dévaluation du cout de l'ikv"""
+        km = self.km()
+        km = int(km)
+        self.cout = (218 * self.freq) * 2 * 0.25 * self.evocycliste() * 4
+        return self.cout
 
     def recodir(self):
         """Génération des recommendations auprès de la direction"""

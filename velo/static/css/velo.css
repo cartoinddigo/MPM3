@@ -62,3 +62,11 @@ h1, h2, h3, h4 {
 
 
 }
+
+.btn a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20pt;
+    font-family: 'Lobster', cursive;
+
+}

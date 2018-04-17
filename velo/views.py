@@ -13,7 +13,8 @@ def detailsplayer(request, pk):
 	players = get_object_or_404(Player, pk=pk)
 	return render(request, 'velo/detailsplayer.html', {'players':players})
 
-
+def home(request):
+	return render(request, 'velo/home.html', {})
 
 
 def newplayer(request):
