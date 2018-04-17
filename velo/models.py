@@ -24,6 +24,7 @@ class Player(models.Model):
 
 
     entrep = models.CharField(max_length=250,verbose_name = "Le nom de votre entreprise",)
+    nom = models.CharField(default = 'votre nom', max_length=250,verbose_name = "votre nom",)
     adresse = models.CharField(max_length=250,verbose_name = "Votre adresse",)
     ville = models.CharField(max_length=250,verbose_name = "Votre ville",)
     #mail = models.EmailField()
