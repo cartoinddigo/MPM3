@@ -100,24 +100,31 @@ class Player(models.Model):
     def km(self):
         """Recuperation des distances moyennes selon le ctx geo"""
         if self.ctxgeolib == '4.9':
-            self.km = 3
+            self.m = 3
         elif self.ctxgeolib == '1.7':
-            self.km = 4
+            self.m = 4
         elif self.ctxgeolib == '1.5':
-            self.km = 4
+            self.m = 4
         else:
-            self.km = 5
-        return self.km
-
-
+            self.m = 5
+        return int(self.m)
 
 
     def cout(self):
         """Fonction dévaluation du cout hors plafond de l'ikv"""
-        km = self.km()
-        km = int(km)
-        self.cout = (218 * self.freq) * 2 * 0.25 * self.evocycliste() * km
+        self.cout = (218 * self.freq) * 2 * 0.25 * self.evocycliste() * self.km()
         return int(self.cout)
+
+    def distmoy(self):
+    	self.i= 218*2*self.km()*self.freq
+    	return self.i
+
+
+
+
+
+    def coutp(self):
+    	pass
 
 
 
