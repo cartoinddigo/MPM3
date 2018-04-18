@@ -119,12 +119,56 @@ class Player(models.Model):
     	self.i= 218*2*self.km()*self.freq
     	return self.i
 
+    def coutpt(self):
+    	"""Fonction d'estimation du cout plafonné"""
+
+    	# calcul des paramètres :
+
+    	# plafond à 200
+    	p = 200 
+		# Distance pour atteindre les 200
+    	kmp = 0 
+    	if p > 200:
+    		kmp = 200/0.25
+    	else:
+    		kmp = p/0.25
+		# Distance réalisée hors plafond
+    	kmhp = self.distmoy()-kmp
+		# Budget en deçà du plafond
+    	bpmoins = 0
+    	if self.distmoy() < kmp:
+    		bpmoins = self.distmoy()*0.25*self.evocycliste()
+    	else:
+    		bpmoins = kmp*0.25*self.evocycliste()
+		# Budget au delà du plafond
+    	bpplus = kmhp*0.43*self.evocycliste()
+		# Somme (budget à la pratique)
+    	bsum = bpplus+bpmoins
+    	# Budget plafond
+    	bp = p*self.evocycliste()
+
+    	# calcul des validation :
+    	vkmhp = p/0.25
+    	vbpmoins = vkmhp-kmp
+    	i = vbpmoins*0.43*self.evocycliste()
+    	if i > 0:
+    		vbpplus = i
+    	else:
+    		vbpplus = 0
+    	vbsum = bpmoins +(self.cout-bpmoins)*0.43/0.25
+    	vbp = vbpplus+bpmoins
+
+    	# calcul final
+    	if vbp>vbsum:
+    		valid = vbsum
+    	else:
+    		valid = vbp
+    	#retourn la valeur du cout plafonné
+    	return ceil(valid)
 
 
 
-
-    def coutp(self):
-    	pass
+    	
 
 
 
