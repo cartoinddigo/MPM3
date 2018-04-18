@@ -109,12 +109,18 @@ class Player(models.Model):
             self.km = 5
         return self.km
 
+
+
+
     def cout(self):
-        """Fonction dévaluation du cout de l'ikv"""
+        """Fonction dévaluation du cout hors plafond de l'ikv"""
         km = self.km()
         km = int(km)
-        self.cout = (218 * self.freq) * 2 * 0.25 * self.evocycliste() * 4
-        return self.cout
+        self.cout = (218 * self.freq) * 2 * 0.25 * self.evocycliste() * km
+        return int(self.cout)
+
+
+
 
     def recodir(self):
         """Génération des recommendations auprès de la direction"""
