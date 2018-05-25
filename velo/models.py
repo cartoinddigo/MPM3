@@ -21,6 +21,10 @@ class Player(models.Model):
     CTX_GEO_LIB = ((CTX1, 'Centre-ville'),(CTX2, 'Banlieues'),(CTX3, 'Rural'),(CTX4, 'Moyenne nationale'),)
     ACC_LIB = (('bonne','bonne' ),('moyenne','moyenne'),('mauvaise','mauvaise'))
 
+    MG1=((10, 'Réticent'),(25, 'Non sensibilisé '),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
+    MG2=((10, 'Réfractaire aux vélos'),(25, 'Sensibilisé mais apeuré'),(45, 'Usager ponctuel  pour le loisir'),(75, 'Usager quotidien'),(100, 'Cycliste expert'),)
+    MG3=((10, 'Pas acté'),(25, 'Actions  vélos en réflexion'),(45, 'Actions vélos mises en place'),(75, 'Démarche en cours'),(100, 'Démarche lancée'),)
+
 
 
     entrep = models.CharField(default = 'votre entreprise', max_length=250,verbose_name = "Le nom de votre entreprise",)
@@ -30,14 +34,14 @@ class Player(models.Model):
     #mail = models.EmailField()
 
     nbsal = models.IntegerField(default=0,verbose_name = "Nombre de salariés",)
-    freq = models.FloatField(default = 0.65, verbose_name = "Fréquence moyenne de la pratique des cycliste (en pourcentages de jours travaillés)",)
+    freq = models.IntegerField(default = 65, verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
     access = models.TextField(default='bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",)
     ctxgeolib = models.TextField(default='Centre-ville',choices=CTX_GEO_LIB,verbose_name = "Contexte geographique")
 
-    g1 = models.IntegerField(default=0,verbose_name = "Motivation de la direction de l’entreprise")
-    g2 = models.IntegerField(default=0,verbose_name = "Motivation des salariés")
-    g3 = models.IntegerField(default=0, verbose_name = "Etat d'avancement du PDE")
+    g1 = models.IntegerField(choices=MG1,verbose_name = "Motivation de la direction de l’entreprise")
+    g2 = models.IntegerField(choices=MG2,verbose_name = "Motivation des salariés")
+    g3 = models.IntegerField(choices=MG3,verbose_name = "Etat d'avancement du PDE")
 
     published_date = models.DateTimeField(blank=True, null=True)
     vctx = models.IntegerField(blank=True, null=True, default=0,verbose_name = "Var ctx")
@@ -60,11 +64,11 @@ class Player(models.Model):
     def paccess(self):
         """Calcul du coef de pondération Accessibilité"""
         if self.access == "bonne":
-            self.pa = self.freq
+            self.pa = self.freq/100
         elif self.access == "moyenne":
-            self.pa = self.freq*0.9
+            self.pa = self.freq/100*0.9
         else:
-            self.pa = self.freq*0.8
+            self.pa = self.freq/100*0.8
         return self.pa
 
     def evocycliste(self):
@@ -75,7 +79,7 @@ class Player(models.Model):
 
     def evoar(self):
         """fonction d'evaluation du nombre de trajets DT"""
-        self.evoar = self.evocycliste()*218*self.freq
+        self.evoar = self.evocycliste()*218*self.freq/100
         self.evoar = ceil(self.evoar)
         return self.evoar
 
@@ -87,14 +91,26 @@ class Player(models.Model):
 
     def distance(self):
         """Fonction d'evaluation de la distance moyenne parcourue"""
-        if self.ctxgeolib == 4.9:
+        if self.ctxgeolib == '4.9':
             self.distance = 3 * self.evoarp
-        elif self.ctxgeolib == 1.7:
+        elif self.ctxgeolib == '1.7':
             self.distance = 4 * self.evoarp
-        elif self.ctxgeolib == 1.5:
+        elif self.ctxgeolib == '1.5':
             self.distance = 4 * self.evoarp
         else:
             self.distance = 5 * self.evoarp
+        return self.distance
+
+    def distanced(self):
+        """Fonction d'evaluation de la distance moyenne parcourue pour l'affichage sur la liste de players. histoire de méthode ?????"""
+        if self.ctxgeolib == '4.9':
+            self.distance = 3 * self.evoarp()
+        elif self.ctxgeolib == '1.7':
+            self.distance = 4 * self.evoarp()
+        elif self.ctxgeolib == '1.5':
+            self.distance = 4 * self.evoarp()
+        else:
+            self.distance = 5 * self.evoarp()
         return self.distance
 
     def km(self):
@@ -109,14 +125,14 @@ class Player(models.Model):
             self.m = 5
         return int(self.m)
 
-
-    def cout(self):
-        """Fonction dévaluation du cout hors plafond de l'ikv"""
-        self.cout = (218 * self.freq) * 2 * 0.25 * self.evocycliste() * self.km()
+    
+    def coutdist(self):
+        """Fonction dévaluation du cout hors plafond de l'ikv en tenant compte des distance pondéres"""
+        self.cout = 2 * 0.25 * self.distance
         return int(self.cout)
 
     def distmoy(self):
-    	self.i= 218*2*self.km()*self.freq
+    	self.i= 218*2*self.km()*self.freq/100
     	return self.i
 
     def coutpt(self):
@@ -216,6 +232,36 @@ class Player(models.Model):
         else:
             self.vctx = 1
         return self.vctx
+
+    def recoscore(self):
+        """fonction de scorind de l'évaluation du PDE"""
+        score = int((self.g1+self.g2+self.g3)/300*100)
+        return score
+
+    def reusite(self):
+        """fonction d'évaluation de la réusite du PDE en fonction de la motive"""
+        if self.ctxgeolib == '4.9':
+            self.notegeo = 100
+        elif self.ctxgeolib == '1.7':
+            self.notegeo = 50
+        elif self.ctxgeolib == '1.5':
+            self.notegeo = 1
+        else:
+            self.notegeo = 50
+
+        if self.access == "bonne":
+            self.noteacces = 100
+        elif self.access == "moyenne":
+            self.noteacces = 50
+        else:
+            self.noteacces = 1
+
+        self.notefreq = self.freq
+
+        reusite = (self.notegeo + self.noteacces + self.notefreq + self.recoscore())/400
+        return reusite
+
+
 
 
 

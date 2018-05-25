@@ -3,11 +3,12 @@
 {% block content %}
 	{% for player in players %}
 		<div class="post">
-	    	<h1><a href="{% url 'detailsplayer' pk=player.pk %}">{{player.entrep}}</a></h1>
+	    	<h1><a href="{% url 'detailsplayer' pk=player.pk %}">{{player.nom}}</a></h1>
 	    	<div class = "date">publié : {{ player.published_date}}</div>
-			<p>nb sal : {{ player.nbsal}}</p>
-			<p>Context géo : {{ player.ctxgeolib}}</p>
-			<p>{{ player.entrep}}</p>
+			<p>nb sal : {{ player.nbsal}}.</p>
+			<p>Context géo : {{ player.ctxgeolib}}. Accessibilité  : {{ player.access}}</p>
+			<p>Potentiel : {{player.pvelo}}. Evolution : {{player.evocycliste}}</p>
+			<p>Distance ponderee : {{player.distanced}} km.</p>
 		</div>
 	{% endfor %}
 {% endblock %}
