@@ -37,7 +37,7 @@ class Player(models.Model):
     freq = models.IntegerField(default = 65, verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
     access = models.TextField(default='bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",)
-    ctxgeolib = models.TextField(default='Centre-ville',choices=CTX_GEO_LIB,verbose_name = "Contexte geographique")
+    ctxgeolib = models.TextField(choices=CTX_GEO_LIB,default='Centre-ville',verbose_name = "Contexte geographique")
 
     g1 = models.IntegerField(choices=MG1,verbose_name = "Motivation de la direction de l’entreprise")
     g2 = models.IntegerField(choices=MG2,verbose_name = "Motivation des salariés")
