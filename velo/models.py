@@ -232,37 +232,6 @@ class Player(models.Model):
 
 
 
-    def reusite(self):
-        """fonction d'évaluation de la réusite en fonction de la motive et du context"""
-        if self.ctxgeolib == '4.9':
-            self.notegeo = 100
-        elif self.ctxgeolib == '1.7':
-            self.notegeo = 50
-        elif self.ctxgeolib == '1.5':
-            self.notegeo = 1
-        else:
-            self.notegeo = 50
-
-        if self.access == "bonne":
-            self.noteacces = 100
-        elif self.access == "moyenne":
-            self.noteacces = 50
-        else:
-            self.noteacces = 1
-
-        self.notefreq = self.freq
-
-        reusite = (self.nbsal /100 * 25) * ((self.notegeo + self.noteacces + self.notefreq +  self.g1 + self.g2 + self.g3 )/600)
-        return reusite
-
-
-
-
-
-
-
-
-
 
 
 
