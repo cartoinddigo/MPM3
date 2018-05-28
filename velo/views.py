@@ -23,7 +23,7 @@ def newplayer(request):
 		if form.is_valid():
 			players = form.save(commit=False)
 			players.published_date = timezone.now()
-			players.vctx = players.varctx()
+			
 			players.save()
 			return redirect('detailsplayer', pk=players.pk)
 	else:

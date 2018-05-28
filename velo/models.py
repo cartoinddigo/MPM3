@@ -1,19 +1,11 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils import timezone
 from math import *
 
 
 
 class Player(models.Model):
-
-    # author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    # title = models.CharField(max_length=200)
-    # text = models.TextField()
-    # created_date = models.DateTimeField(
-    #         default=timezone.now)
-    # published_date = models.DateTimeField(
-    #         blank=True, null=True)
-
 
     CTX_GEO_LIB = ((4.9, 'Centre-ville'),(1.7, 'Banlieues'),(1.5, 'Rural'),(2.2, 'Moyenne nationale'),)
     ACC_LIB = (('bonne','bonne' ),('moyenne','moyenne'),('mauvaise','mauvaise'))
@@ -31,7 +23,7 @@ class Player(models.Model):
     #mail = models.EmailField()
 
     nbsal = models.IntegerField(default=0,verbose_name = "Nombre de salariés",)
-    freq = models.IntegerField(default = 65, verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
+    freq = models.PositiveIntegerField(default = 65, validators=[MinValueValidator(0), MaxValueValidator(100)], verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
     access = models.CharField(default='Bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",max_length=10)
     ctxgeolib = models.FloatField(choices=CTX_GEO_LIB,default='Centre-ville',verbose_name = "Contexte geographique")
@@ -41,7 +33,6 @@ class Player(models.Model):
     g3 = models.IntegerField(choices=MG3,verbose_name = "Etat d'avancement du PDE")
 
     published_date = models.DateTimeField(blank=True, null=True)
-    vctx = models.IntegerField(blank=True, null=True, default=0,verbose_name = "Var ctx")
     #g4 = models.IntegerField(default=0)
 
     # def publish(self):
@@ -54,9 +45,26 @@ class Player(models.Model):
 
     def pvelo(self):
         """Calcul du potentiel vélo"""
-        self.pv = (float(self.ctxgeolib)*int(self.nbsal))/100
-        self.pv = ceil(self.pv)
-        return self.pv
+        if self.ctxgeolib == '4.9':
+            self.notegeo = 100
+        elif self.ctxgeolib == '1.7':
+            self.notegeo = 50
+        elif self.ctxgeolib == '1.5':
+            self.notegeo = 1
+        else:
+            self.notegeo = 65
+
+        if self.access == "bonne":
+            self.noteacces = 100
+        elif self.access == "moyenne":
+            self.noteacces = 50
+        else:
+            self.noteacces = 1
+
+        self.notefreq = self.freq
+
+        reusite = (self.nbsal /100 * 25) * ((self.notegeo + self.noteacces + self.notefreq +  self.g1 + self.g2 + self.g3 )/600)
+        return ceil(reusite)
 
     def paccess(self):
         """Calcul du coef de pondération Accessibilité"""
@@ -70,7 +78,7 @@ class Player(models.Model):
 
     def evocycliste(self):
         """fonction d'evaluation de l'evolution du nombre de cyclistes"""
-        self.evocycl = self.pvelo() *(1+0.5)
+        self.evocycl = self.pvelo()*(1+0.5)
         self.evocycl = ceil(self.evocycl)
         return self.evocycl
 
@@ -222,21 +230,10 @@ class Player(models.Model):
             self.recog3 = "Avancée du PDE sup à 75%"
         return self.recog3
 
-    def varctx(self):
-        """retourne le switch ctx"""
-        if self.recopde() == "Avancée du PDE inférieur à 20 %": #TODO !!!
-            self.vctx = 0
-        else:
-            self.vctx = 1
-        return self.vctx
 
-    def recoscore(self):
-        """fonction de scorind de l'évaluation du PDE"""
-        score = int((self.g1+self.g2+self.g3)/300*100)
-        return score
 
     def reusite(self):
-        """fonction d'évaluation de la réusite du PDE en fonction de la motive"""
+        """fonction d'évaluation de la réusite en fonction de la motive et du context"""
         if self.ctxgeolib == '4.9':
             self.notegeo = 100
         elif self.ctxgeolib == '1.7':
@@ -255,7 +252,7 @@ class Player(models.Model):
 
         self.notefreq = self.freq
 
-        reusite = (self.notegeo + self.noteacces + self.notefreq + self.recoscore())/400
+        reusite = (self.nbsal /100 * 25) * ((self.notegeo + self.noteacces + self.notefreq +  self.g1 + self.g2 + self.g3 )/600)
         return reusite
 
 
