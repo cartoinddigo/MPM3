@@ -17,11 +17,18 @@
         <p><span class="big">{{players.coutpt}} €</span> avec un plafond de 200 € par salaré.</p>
         <hr>
         <h1>Actions a mettre en oeuvre pour le développement du vélo :</h1>
-		<p>Motivation direction : {{ players.g1}} %</p>
-        <p>Recommandation Direction : <span>{{ players.recodir}}</span></p>
-		<p>Motivation des salariés : {{ players.g2}} %</p>
-        <p>Recommandation Salariés : <span>{{ players.recosal}}</span></p>
-		<p>Avancement du PDE : {{ players.g3}} %</p>
-        <p>Recommandation PDE : <span>{{ players.recopde}}</span></p>
+        <div>
+            <p>Recommandations Direction : </p>
+            <p>{{ players.recodir}}</p>
+        </div>
+        <div>
+            <p>Recommandations Salariés : </p>
+            {{ players.recosal}}
+        </div>
+        <div>
+            <p>Recommandation PDE : </p>
+            <p>{{ players.recopde}}</p>
+        </div>
+        
     </div>
 {% endblock %}

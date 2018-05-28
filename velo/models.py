@@ -3,15 +3,16 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils import timezone
 from math import *
 
-class MyMaxValueValidator(MaxValueValidator):
-    message = ('Way over %(limit_value)s.')
+
 
 class Player(models.Model):
 
 
+
+
     CTX_GEO_LIB = ((4.9, 'Centre-ville'),(1.7, 'Banlieues'),(1.5, 'Rural'),(2.2, 'Moyenne nationale'),)
     ACC_LIB = (('bonne','bonne' ),('moyenne','moyenne'),('mauvaise','mauvaise'))
-    FREQF_LIB = ((15, '1 jour'),(35, '2 jours'),(65, '3 jours'),(80, '4 jours'),(100, '5 jours'),)
+    FREQF_LIB = ((5, 'moins de 1 jour'),(15, '1 jour'),(35, '2 jours'),(65, '3 jours'),(80, '4 jours'),(100, '5 jours'),)
 
     MG1=((10, 'Réticent'),(25, 'Non sensibilisé '),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
     MG2=((10, 'Réfractaire aux vélos'),(25, 'Sensibilisé mais apeuré'),(45, 'Usager ponctuel  pour le loisir'),(75, 'Usager quotidien'),(100, 'Cycliste expert'),)
@@ -25,8 +26,8 @@ class Player(models.Model):
     ville = models.CharField(max_length=250,verbose_name = "Votre ville",)
     #mail = models.EmailField()
 
-    nbsal = models.IntegerField(default=0,verbose_name = "Nombre de salariés",)
-    freq = models.IntegerField(default='3 jours',choices=FREQF_LIB,verbose_name = "fréquence d'utilisation",max_length=20)
+    nbsal = models.PositiveIntegerField(verbose_name = "Nombre de salariés",)
+    freq = models.IntegerField(default=65,choices=FREQF_LIB,verbose_name = "fréquence d'utilisation",max_length=20)
     #freq = models.PositiveIntegerField(default = 65, validators=[MinValueValidator(0), MyMaxValueValidator(100,"The value should be lesser than %(limit_value)s.")], verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
     access = models.CharField(default='Bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",max_length=10)
@@ -42,6 +43,7 @@ class Player(models.Model):
     # def publish(self):
     #     self.published_date = timezone.now()
     #     self.save()
+
 
     def publish(self):
     	self.published_date = timezone.now()
@@ -200,34 +202,36 @@ class Player(models.Model):
 
     def recodir(self):
         """Génération des recommendations auprès de la direction"""
-        if (0 <= self.g1 <= 20):
-            self.recog1 = "Taux d'adhésion de la direction inférieur à 20 %"
-        elif(20 <= self.g1 <= 50):
-            self.recog1 = "Taux d'adhésion de la direction compris entre 20 et 50%"
-        elif (50 <= self.g1 <= 75):
-            self.recog1 = "Taux d'adhésion de la direction compris entre 50 et 75%"
+        if (0 <= self.g1 <= 25):
+            self.recog1 = "Actions de sensibilisation fortes à mettre en place auprès de la direction"
+        elif(25 < self.g1 <= 75):
+            self.recog1 = "Actions pour conforter la motivation de la direction"
         else:
-            self.recog1 = "Taux d'adhésion de la direction sup à 75%"
+            self.recog1 = "Direction OK"
         return self.recog1
 
     def recosal(self):
         """Génération des recommendations auprès des salariés"""
-        if (0 <= self.g2 <= 20):
-            self.recog2 = "Taux d'adhésion des salariés inférieur à 20 %"
-        elif(20 <= self.g2 <= 50):
-            self.recog2 = "Taux d'adhésion des salariés compris entre 20 et 50%"
-        elif (50 <= self.g2 <= 75):
-            self.recog2 = "Taux d'adhésion des salariés compris entre 50 et 75%"
+
+        if (self.g2 == 10):
+            self.recog2 = "Un playdoyer actif doit être mis en place auprès des salariés"
+        elif(self.g2 == 25):
+            self.recog2 = "Il faut conforter la motivation de vos salariés. Mettre en place des actions d'information et sensibilisation ;  Remise en selle."
+        elif (self.g2 == 45):
+            self.recog2 = "Favoriser l'utilisation quotidienne du vélo"
+                            "aménagements sur le site mise en place de l'IKV"
+                            "Référent vélo"
+                            
         else:
-            self.recog2 = "Taux d'adhésion des salariés sup à 75%"
+            self.recog2 = "Salariés OK"
         return self.recog2
 
     def recopde(self):
         """Génération des recommendations en fonction de l'avancement du PDE"""
-        if (0 <= self.g3 <= 20):
+        if (0 <= self.g3 <= 25):
             self.recog3 = "Avancée du PDE inférieur à 20 %"
-        elif(20 <= self.g3 <= 50):
-            self.recog3 = "Avancée du PDE compris entre 20 et 50%"
+        elif(25 <= self.g3 <= 45):
+            self.recog3 = "Réaliser les actions inscrites au PDE"
         elif (50 <= self.g3 <= 75):
             self.recog3 = "Avancée du PDE compris entre 50 et 75%"
         else:
