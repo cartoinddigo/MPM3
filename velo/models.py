@@ -16,7 +16,7 @@ class Player(models.Model):
 
     MG1=((10, 'Réticent'),(25, 'Non sensibilisé '),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
     MG2=((10, 'Réfractaire aux vélos'),(25, 'Sensibilisé mais apeuré'),(45, 'Usager ponctuel  pour le loisir'),(75, 'Usager quotidien'),(100, 'Cycliste expert'),)
-    MG3=((10, 'Pas acté'),(25, 'Actions  vélos en réflexion'),(45, 'Actions vélos mises en place'),(75, 'Démarche en cours'),(100, 'Démarche lancée'),)
+    MG3=((10, 'Pas acté'),(25, 'Actions  vélos en réflexion'),(75, 'Actions vélos mises en place'),(80, 'Démarche en cours'),(100, 'Démarche lancée'),)
 
 
 
@@ -226,14 +226,14 @@ class Player(models.Model):
 
     def recopde(self):
         """Génération des recommendations en fonction de l'avancement du PDE"""
-        if (0 <= self.g3 <= 25):
-            self.recog3 = "Avancée du PDE inférieur à 20 %"
-        elif(25 <= self.g3 <= 45):
-            self.recog3 = "Réaliser les actions inscrites au PDE"
-        elif (50 <= self.g3 <= 75):
-            self.recog3 = "Avancée du PDE compris entre 50 et 75%"
+        if (self.g3 == 10):
+            self.recog3 = '1'
+        elif(self.g3 == 25):
+            self.recog3 = '2'
+        elif (self.g3 == 45):
+            self.recog3 == '3'
         else:
-            self.recog3 = "Avancée du PDE sup à 75%"
+            self.recog3 = '4'
         return self.recog3
 
 

@@ -69,7 +69,34 @@
         </div>
         <div>
             <h3>Recommandation PDE : </h3>
-            <p>{{ players.recopde}}</p>
+            {% if players.recopde == '1' %}
+            <div >
+            <p>Argumentaire en amont d'une démarche de PDM</p>
+            </div>
+            {% endif %}
+            {% if players.recopde == '2' %}
+            <div >
+            <p>Solutions d'accompagnement accompagner dans la réalisations d'actions déja envisagées</p>
+            <ul>
+                <li>puce 1<li>
+                <li>puce 2<li>
+            </ul>
+            </div>
+            {% endif %}
+            {% if players.recopde == '3'  %}
+            <div >
+            <p>Vous êtes sur la bonne voie !</p>
+            <ul>
+                <li>puce 1<li>
+                <li>puce 2<li>
+            </ul>
+            </div>
+            {% endif %}
+            {% if players.recopde == '4'  %}
+            <div >
+            <p>Votre PDM est mature</p>
+            </div>
+            {% endif %}
         </div>
         
     </div>
