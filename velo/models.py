@@ -218,9 +218,7 @@ class Player(models.Model):
         elif(self.g2 == 25):
             self.recog2 = "Il faut conforter la motivation de vos salariés. Mettre en place des actions d'information et sensibilisation ;  Remise en selle."
         elif (self.g2 == 45):
-            self.recog2 = "Favoriser l'utilisation quotidienne du vélo"
-                            "aménagements sur le site mise en place de l'IKV"
-                            "Référent vélo"
+            self.recog2 = "Favoriser l'utilisation quotidienne du vélo, aménagements sur le site mise en place de l'IKV, Référent vélo"
                             
         else:
             self.recog2 = "Salariés OK"
