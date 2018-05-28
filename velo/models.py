@@ -3,12 +3,15 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils import timezone
 from math import *
 
-
+class MyMaxValueValidator(MaxValueValidator):
+    message = ('Way over %(limit_value)s.')
 
 class Player(models.Model):
 
+
     CTX_GEO_LIB = ((4.9, 'Centre-ville'),(1.7, 'Banlieues'),(1.5, 'Rural'),(2.2, 'Moyenne nationale'),)
     ACC_LIB = (('bonne','bonne' ),('moyenne','moyenne'),('mauvaise','mauvaise'))
+    FREQF_LIB = ((15, '1 jour'),(35, '2 jours'),(65, '3 jours'),(80, '4 jours'),(100, '5 jours'),)
 
     MG1=((10, 'Réticent'),(25, 'Non sensibilisé '),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
     MG2=((10, 'Réfractaire aux vélos'),(25, 'Sensibilisé mais apeuré'),(45, 'Usager ponctuel  pour le loisir'),(75, 'Usager quotidien'),(100, 'Cycliste expert'),)
@@ -23,7 +26,8 @@ class Player(models.Model):
     #mail = models.EmailField()
 
     nbsal = models.IntegerField(default=0,verbose_name = "Nombre de salariés",)
-    freq = models.PositiveIntegerField(default = 65, validators=[MinValueValidator(0), MaxValueValidator(100)], verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
+    freq = models.IntegerField(default='3 jours',choices=FREQF_LIB,verbose_name = "fréquence d'utilisation",max_length=20)
+    #freq = models.PositiveIntegerField(default = 65, validators=[MinValueValidator(0), MyMaxValueValidator(100,"The value should be lesser than %(limit_value)s.")], verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
     access = models.CharField(default='Bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",max_length=10)
     ctxgeolib = models.FloatField(choices=CTX_GEO_LIB,default='Centre-ville',verbose_name = "Contexte geographique")
