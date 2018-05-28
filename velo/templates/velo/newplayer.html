@@ -7,8 +7,7 @@
     <form method="POST" class="post-form">
     	{% csrf_token %}
 
-    	<h1>New player</h1>
-    	<p>Votre nom : {{form.nom}}</p>
+	   	<p>Votre nom : {{form.nom}}</p>
     	<p>Votre entreprise : {{form.entrep}}</p>
     	<p>Votre Ville : {{form.ville}}</p>
     	<p>Nombre de salariés : {{form.nbsal}}</p>
