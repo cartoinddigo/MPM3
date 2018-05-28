@@ -33,7 +33,7 @@ class Player(models.Model):
     nbsal = models.IntegerField(default=0,verbose_name = "Nombre de salariés",)
     freq = models.IntegerField(default = 65, verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
-    access = models.CharField(default='Bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",)
+    access = models.CharField(default='Bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",max_length=10)
     ctxgeolib = models.FloatField(choices=CTX_GEO_LIB,default='Centre-ville',verbose_name = "Contexte geographique")
 
     g1 = models.IntegerField(choices=MG1,verbose_name = "Motivation de la direction de l’entreprise")
