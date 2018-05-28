@@ -13,12 +13,9 @@ class Player(models.Model):
     #         default=timezone.now)
     # published_date = models.DateTimeField(
     #         blank=True, null=True)
-    CTX1= '4.9'
-    CTX2= '1.7'
-    CTX3= '1.5'
-    CTX4= '2.2'
 
-    CTX_GEO_LIB = ((CTX1, 'Centre-ville'),(CTX2, 'Banlieues'),(CTX3, 'Rural'),(CTX4, 'Moyenne nationale'),)
+
+    CTX_GEO_LIB = ((4.9, 'Centre-ville'),(1.7, 'Banlieues'),(1.5, 'Rural'),(2.2, 'Moyenne nationale'),)
     ACC_LIB = (('bonne','bonne' ),('moyenne','moyenne'),('mauvaise','mauvaise'))
 
     MG1=((10, 'Réticent'),(25, 'Non sensibilisé '),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
