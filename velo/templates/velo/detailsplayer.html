@@ -18,15 +18,57 @@
         <hr>
         <h1>Actions a mettre en oeuvre pour le développement du vélo :</h1>
         <div>
-            <p>Recommandations Direction : </p>
-            <p>{{ players.recodir}}</p>
+            <h3>Recommandations Direction : </h3>
+            {% if players.recodir == '1' %}
+            <div >
+            <p>Actions de sensibilisation fortes à mettre en place auprès de la direction</p>
+            </div>
+            {% endif %}
+            {% if players.recodir == '2' %}
+            <div >
+            <p>Actions pour conforter la motivation de la direction</p>
+            </div>
+            {% endif %}
+            {% if players.recodir == '3'  %}
+            <div >
+            <p>Direction OK</p>
+            </div>
+            {% endif %}
         </div>
         <div>
-            <p>Recommandations Salariés : </p>
-            {{ players.recosal}}
+            <h3>Recommandations Salariés : </h3>
+            {% if players.recosal == '1' %}
+            <div >
+            <p>Un playdoyer actif doit être mis en place auprès des salariés</p>
+            </div>
+            {% endif %}
+            {% if players.recosal == '2' %}
+            <div >
+            <p>Il faut conforter la motivation de vos salariés !</p>
+            <ul>
+                <li>Mettre en place des actions d'information et sensibilisation</li>
+                <li>Remise en selle</li>
+            </ul>
+            </div>
+            {% endif %}
+            {% if players.recosal == '3'  %}
+            <div >
+            <p>Encourager l'utilisation quotidienne du vélo !</p>
+            <ul>
+                <li>Aménagements sur le site (parking vélo, douches, ...)</li>
+                <li>Mise en place de l'IKV</li>
+                <li>Référent vélo</li>
+            </ul>
+            </div>
+            {% endif %}
+            {% if players.recosal == '4'  %}
+            <div >
+            <p>Vous êtes les meilleurs ! </p>
+            </div>
+            {% endif %}
         </div>
         <div>
-            <p>Recommandation PDE : </p>
+            <h3>Recommandation PDE : </h3>
             <p>{{ players.recopde}}</p>
         </div>
         

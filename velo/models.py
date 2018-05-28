@@ -203,25 +203,25 @@ class Player(models.Model):
     def recodir(self):
         """Génération des recommendations auprès de la direction"""
         if (0 <= self.g1 <= 25):
-            self.recog1 = "Actions de sensibilisation fortes à mettre en place auprès de la direction"
+            self.recog1 = '1' #"Actions de sensibilisation fortes à mettre en place auprès de la direction"
         elif(25 < self.g1 <= 75):
-            self.recog1 = "Actions pour conforter la motivation de la direction"
+            self.recog1 = '2' # "Actions pour conforter la motivation de la direction"
         else:
-            self.recog1 = "Direction OK"
+            self.recog1 = '3'  #"Direction OK"
         return self.recog1
 
     def recosal(self):
         """Génération des recommendations auprès des salariés"""
 
         if (self.g2 == 10):
-            self.recog2 = "Un playdoyer actif doit être mis en place auprès des salariés"
+            self.recog2 = '1' #"Un playdoyer actif doit être mis en place auprès des salariés"
         elif(self.g2 == 25):
-            self.recog2 = "Il faut conforter la motivation de vos salariés. Mettre en place des actions d'information et sensibilisation ;  Remise en selle."
+            self.recog2 = '2' #Il faut conforter la motivation de vos salariés. Mettre en place des actions d'information et sensibilisation ;  Remise en selle."
         elif (self.g2 == 45):
-            self.recog2 = "Favoriser l'utilisation quotidienne du vélo, aménagements sur le site mise en place de l'IKV, Référent vélo"
+            self.recog2 = '3' #"Favoriser l'utilisation quotidienne du vélo, aménagements sur le site mise en place de l'IKV, Référent vélo"
                             
         else:
-            self.recog2 = "Salariés OK"
+            self.recog2 = '4'
         return self.recog2
 
     def recopde(self):
