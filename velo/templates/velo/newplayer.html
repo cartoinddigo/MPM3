@@ -3,18 +3,42 @@
 {% block content %}
 
 
-    <h1>New player</h1>
+    
     <form method="POST" class="post-form">
     	{% csrf_token %}
 
-    	{{form.nom}}
-    	{{form.entrep}}
-    	{{form.ville}}
+    	<h1>New player</h1>
+    	<p>Votre nom : {{form.nom}}</p>
+    	<p>Votre entreprise : {{form.entrep}}</p>
+    	<p>Votre Ville : {{form.ville}}</p>
+    	<p>Nombre de salariés : {{form.nbsal}}</p>
+
+    	<h1>Le vélo dans votre entreprise :</h1>
+    	<div>
+    	<p>Quel est le contexte géographique de votre entreprise : </p>
+    	<p>{{form.ctxgeolib}}</p>
+    	</div>
+    	<div>
+    	<p>Globalement, comment qualifieriez-vous son accessibilité à vélo ? (relief, qualité des aménagement, présence de parking à vélo...) : </p>
+    	<p>{{form.access}}</p>
+    	</div>
+    	<div>
+    	<p>Certains de vos salariés viennent déjà à vélo ? Combien de jours par semaine (variable à modifier dans le model) ?</p>
+    	<p>{{form.freq}}</p>    		
+    	</div>
+    	<div>
+    	<p>Pour les personnes suivantes, comment qualifieriez-vous la perception du vélo ?</p>
+    	<p>La direction : {{form.g1}}</p>
+    	<p>Les salariés : {{form.g2}}</p>
+    	</div>
+    	<div>
+    	 <p>Quel est l'état d'avancée de votre PDE ? </p>
+    	 <p>{{form.g3}}</p>
+    	 </div>
+
 		   
 		<!--{{ form.as_p }}-->
        
         <button type="submit" class="btn btn-primary btn-lg btn-block">Envoi</button>
-    	}
-    	}
     </form>
 {% endblock %}
