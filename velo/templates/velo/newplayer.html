@@ -6,9 +6,15 @@
     <h1>New player</h1>
     <form method="POST" class="post-form">
     	{% csrf_token %}
+
+    	{{form.nom}}
+    	{{form.entrep}}
+    	{{form.ville}}
 		   
-		{{ form.as_p }}
+		<!--{{ form.as_p }}-->
        
         <button type="submit" class="btn btn-primary btn-lg btn-block">Envoi</button>
+    	}
+    	}
     </form>
 {% endblock %}
