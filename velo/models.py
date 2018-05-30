@@ -10,13 +10,14 @@ class Player(models.Model):
 
 
 
-    CTX_GEO_LIB = ((4.9, 'Centre-ville'),(1.7, 'Banlieues'),(1.5, 'Rural'),(2.2, 'Moyenne nationale'),)
+    CTX_GEO_LIB = ((4.9, 'Centre ville ou urbain'),(1.7, 'Périurbain'),(1.5, 'Rural'),(2.2, 'Moyenne nationale'),) # suprimer moyenne nationale
     ACC_LIB = (('bonne','bonne' ),('moyenne','moyenne'),('mauvaise','mauvaise'))
     FREQF_LIB = ((5, 'moins de 1 jour'),(15, '1 jour'),(35, '2 jours'),(65, '3 jours'),(80, '4 jours'),(100, '5 jours'),)
 
-    MG1=((10, 'Réticent'),(25, 'Non sensibilisé '),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
-    MG2=((10, 'Réfractaire aux vélos'),(25, 'Sensibilisé mais apeuré'),(45, 'Usager ponctuel  pour le loisir'),(75, 'Usager quotidien'),(100, 'Cycliste expert'),)
-    MG3=((10, 'Pas acté'),(25, 'Actions  vélos en réflexion'),(75, 'Actions vélos mises en place'),(80, 'Démarche en cours'),(100, 'Démarche lancée'),)
+    MG1=((10, 'Réticent'),(25, 'Non sensibilisé'),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
+    MG2=((10, 'Réfractaire aux vélos'),(25, 'Sensibilisé mais apeuré'),(45, 'Usager ponctuel pour le loisir'),(75, 'Usager quotidien'),(100, 'Cycliste expert'),)
+    MG3=((10, 'Pas acté'),(50, 'Démarche en cours'),(100, 'Démarche lancée'),)
+    MG4=((10, 'Aucune action envisagée'),(50, 'Actions  vélos en réflexion'),(100, 'Actions vélos mises en place'),) 
 
 
 
@@ -27,7 +28,7 @@ class Player(models.Model):
     #mail = models.EmailField()
 
     nbsal = models.PositiveIntegerField(verbose_name = "Nombre de salariés",)
-    freq = models.IntegerField(default=65,choices=FREQF_LIB,verbose_name = "fréquence d'utilisation",max_length=20)
+    freq = models.IntegerField(default=65,choices=FREQF_LIB,verbose_name = "fréquence d'utilisation")
     #freq = models.PositiveIntegerField(default = 65, validators=[MinValueValidator(0), MyMaxValueValidator(100,"The value should be lesser than %(limit_value)s.")], verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
     access = models.CharField(default='Bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",max_length=10)
@@ -36,13 +37,14 @@ class Player(models.Model):
     g1 = models.IntegerField(choices=MG1,verbose_name = "Motivation de la direction de l’entreprise")
     g2 = models.IntegerField(choices=MG2,verbose_name = "Motivation des salariés")
     g3 = models.IntegerField(choices=MG3,verbose_name = "Etat d'avancement du PDE")
+    g4 = models.IntegerField(choices=MG4,verbose_name = "Actions vélo", default=50)
 
     published_date = models.DateTimeField(blank=True, null=True)
-    #g4 = models.IntegerField(default=0)
+    
 
     # def publish(self):
     #     self.published_date = timezone.now()
-    #     self.save()
+    #     self.save()nb
 
 
     def publish(self):
@@ -56,7 +58,7 @@ class Player(models.Model):
         elif self.ctxgeolib == '1.7':
             self.notegeo = 50
         elif self.ctxgeolib == '1.5':
-            self.notegeo = 1
+            self.notegeo = 10
         else:
             self.notegeo = 65
 
@@ -65,11 +67,11 @@ class Player(models.Model):
         elif self.access == "moyenne":
             self.noteacces = 50
         else:
-            self.noteacces = 1
+            self.noteacces = 10
 
         self.notefreq = self.freq
 
-        reusite = (self.nbsal /100 * 25) * ((self.notegeo + self.noteacces + self.notefreq +  self.g1 + self.g2 + self.g3 )/600)
+        reusite = (self.nbsal /100 * 25) * ((self.notegeo + self.noteacces + self.notefreq +  self.g1 + self.g2 + self.g3 )/700) #+ self.g4
         return ceil(reusite)
 
     def paccess(self):
@@ -225,16 +227,16 @@ class Player(models.Model):
         return self.recog2
 
     def recopde(self):
-        """Génération des recommendations en fonction de l'avancement du PDE"""
+        """Génération des recommendations en fonction de l'avancement du PDM"""
         if (self.g3 == 10):
             self.recog3 = '1'
-        elif(self.g3 == 25):
+        elif(self.g3 == 50):
             self.recog3 = '2'
-        elif (self.g3 == 45):
-            self.recog3 == '3'
         else:
-            self.recog3 = '4'
+            self.recog3 = '3'
         return self.recog3
+
+
 
 
 
