@@ -17,7 +17,7 @@ class Player(models.Model):
     MG1=((10, 'Réticent'),(25, 'Non sensibilisé'),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
     MG2=((10, 'Réfractaire aux vélos'),(25, 'Sensibilisé mais apeuré'),(45, 'Usager ponctuel pour le loisir'),(75, 'Usager quotidien'),(100, 'Cycliste expert'),)
     MG3=((10, 'Pas acté'),(50, 'Démarche en cours'),(100, 'Démarche lancée'),)
-    MG4=((10, 'Aucune action envisagée'),(50, 'Actions  vélos en réflexion'),(100, 'Actions vélos mises en place'),) 
+    MG4=((10, 'Aucune action envisagée'),(50, 'Actions vélos en réflexion'),(100, 'Actions vélos mises en place'),) 
 
 
 
@@ -71,7 +71,7 @@ class Player(models.Model):
 
         self.notefreq = self.freq
 
-        reusite = (self.nbsal /100 * 25) * ((self.notegeo + self.noteacces + self.notefreq +  self.g1 + self.g2 + self.g3 )/700) #+ self.g4
+        reusite = (self.nbsal /100 * 25) * ((self.notegeo + self.noteacces + self.notefreq +  self.g1 + self.g2 + self.g3 +self.g4 )/700) #+ self.g4
         return ceil(reusite)
 
     def paccess(self):
