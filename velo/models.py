@@ -51,8 +51,8 @@ class Player(models.Model):
     	self.published_date = timezone.now()
     	self.save()
 
-    def pvelo(self):
-        """Calcul du potentiel vélo"""
+    def score(self):
+        """Calcul du score global"""
         if self.ctxgeolib == '4.9':
             self.notegeo = 100
         elif self.ctxgeolib == '1.7':
@@ -70,9 +70,16 @@ class Player(models.Model):
             self.noteacces = 10
 
         self.notefreq = self.freq
+        self.moy = ((self.notegeo + self.noteacces + self.notefreq +  self.g1 + self.g2 + self.g3 +self.g4 )/700) #+ self.g4
+        return round(self.moy,2)
 
-        reusite = (self.nbsal /100 * 25) * ((self.notegeo + self.noteacces + self.notefreq +  self.g1 + self.g2 + self.g3 +self.g4 )/700) #+ self.g4
-        return ceil(reusite)
+    def pvelo(self):
+        """Calcul du potentiel vélo"""
+        s = float(self.score())
+        
+
+        self.reusite =(self.nbsal /100 * 25) * s
+        return ceil(self.reusite)
 
     def paccess(self):
         """Calcul du coef de pondération Accessibilité"""
