@@ -71,7 +71,7 @@ class Player(models.Model):
 
         self.notefreq = self.freq
         self.moy = ((self.notegeo + self.noteacces + self.notefreq +  self.g1 + self.g2 + self.g3 +self.g4 )/700) #+ self.g4
-        return round(self.moy,2)
+        return self.moy
 
     def pvelo(self):
         """Calcul du potentiel vélo avec une part modale mini de 3% et un part modale maxi de 30 %
@@ -210,9 +210,9 @@ class Player(models.Model):
 
     def recodir(self):
         """Génération des recommendations auprès de la direction"""
-        if (0 <= self.g1 <= 25):
+        if (0 <= self.g1 <= 2):
             self.recog1 = '1' #"Actions de sensibilisation fortes à mettre en place auprès de la direction"
-        elif(25 < self.g1 <= 75):
+        elif(2 < self.g1 <= 75):
             self.recog1 = '2' # "Actions pour conforter la motivation de la direction"
         else:
             self.recog1 = '3'  #"Direction OK"
