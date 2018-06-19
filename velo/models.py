@@ -74,10 +74,9 @@ class Player(models.Model):
         return round(self.moy,2)
 
     def pvelo(self):
-        """Calcul du potentiel vélo"""
-        pm = 34.177*self.score()-2.4684
-        
-
+        """Calcul du potentiel vélo avec une part modale mini de 3% et un part modale maxi de 30 %
+        selon la fonction y = 31.177.x-2.4684"""
+        pm = 34.177*self.score()-2.4684        
         self.reusite =(self.nbsal /100 * pm)
         return ceil(self.reusite)
 
