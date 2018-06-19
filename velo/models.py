@@ -14,8 +14,8 @@ class Player(models.Model):
     ACC_LIB = (('bonne','bonne' ),('moyenne','moyenne'),('mauvaise','mauvaise'))
     FREQF_LIB = ((5, 'moins de 1 jour'),(15, '1 jour'),(35, '2 jours'),(65, '3 jours'),(80, '4 jours'),(100, '5 jours'),)
 
-    MG1=((10, 'Réticent'),(25, 'Non sensibilisé'),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
-    MG2=((10, 'Réfractaire aux vélos'),(25, 'Sensibilisé mais apeuré'),(45, 'Usager ponctuel pour le loisir'),(75, 'Usager quotidien'),(100, 'Cycliste expert'),)
+    MG1=((2, 'Réticent'),(25, 'Non sensibilisé'),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
+    MG2=((10, 'Réfractaire aux vélos'),(25, 'Sensibilisé mais pas confiant'),(45, 'Usager ponctuel pour le loisir'),(75, 'Usager quotidien'),(100, 'Cycliste expert'),)
     MG3=((10, 'Pas acté'),(50, 'Démarche en cours'),(100, 'Démarche lancée'),)
     MG4=((10, 'Aucune action envisagée'),(50, 'Actions vélos en réflexion'),(100, 'Actions vélos mises en place'),) 
 
@@ -86,14 +86,14 @@ class Player(models.Model):
         if self.access == "bonne":
             self.pa = self.freq/100
         elif self.access == "moyenne":
-            self.pa = self.freq/100*0.9
-        else:
             self.pa = self.freq/100*0.8
+        else:
+            self.pa = self.freq/100*0.6
         return self.pa
 
     def evocycliste(self):
         """fonction d'evaluation de l'evolution du nombre de cyclistes"""
-        self.evocycl = self.pvelo()*(1+0.5)
+        self.evocycl = self.pvelo()*(1+0.5) 
         self.evocycl = ceil(self.evocycl)
         return self.evocycl
 
