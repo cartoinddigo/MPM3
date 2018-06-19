@@ -75,10 +75,10 @@ class Player(models.Model):
 
     def pvelo(self):
         """Calcul du potentiel vélo"""
-        s = float(self.score())
+        pm = 34.177*self.score()-2.4684
         
 
-        self.reusite =(self.nbsal /100 * 25) * s
+        self.reusite =(self.nbsal /100 * pm)
         return ceil(self.reusite)
 
     def paccess(self):
