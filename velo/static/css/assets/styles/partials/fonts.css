@@ -1,0 +1,108 @@
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/light.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/light.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/light-italic.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/light-italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 300;
+}
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/regular.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/italic.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/medium.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/bold.woff2?#iefix") format("woff2")
+     , url("../../fonts/Roboto/bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Kanit;
+  src: url("../../fonts/Kanit/regular.woff2?#iefix") format("woff2")
+     , url("../../fonts/Kanit/regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: Kanit;
+  src: url("../../fonts/Kanit/italic.woff2?#iefix") format("woff2")
+     , url("../../fonts/Kanit/italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: Kanit;
+  src: url("../../fonts/Kanit/medium.woff2?#iefix") format("woff2")
+     , url("../../fonts/Kanit/medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: Kanit;
+  src: url("../../fonts/Kanit/semibold.woff2?#iefix") format("woff2")
+     , url("../../fonts/Kanit/semibold.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: Kanit;
+  src: url("../../fonts/Kanit/semibold-italic.woff2?#iefix") format("woff2")
+     , url("../../fonts/Kanit/semibold-italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 600;
+}
+@font-face {
+  font-family: Kanit;
+  src: url("../../fonts/Kanit/bold.woff2?#iefix") format("woff2")
+     , url("../../fonts/Kanit/bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("../../fonts/Rubik/light.woff2?#iefix") format("woff2")
+     , url("../../fonts/Rubik/light.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: Rubik;
+  src: url("../../fonts/Rubik/medium.woff2?#iefix") format("woff2")
+     , url("../../fonts/Rubik/medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url("../../fonts/Raleway/bold.woff2?#iefix") format("woff2")
+     , url("../../fonts/Raleway/bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+}

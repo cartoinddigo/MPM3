@@ -2,50 +2,130 @@
 
 {% block content %}
 
+            <section class="Section Section--form">
+                <div class="Section-inner">
 
-    
-    <form method="POST" class="post-form">
-    	{% csrf_token %}
+                    <form method="POST" class="post-form">
+                    {% csrf_token %}
 
-	   	<p>Votre nom : {{form.nom}}</p>
-    	<p>Votre entreprise : {{form.entrep}}</p>
-    	<p>Votre Ville : {{form.ville}}</p>
-    	<p>Nombre de salariés : {{form.nbsal}}</p>
+                        <div class="Form-set">
+                            <strong class="Form-caption">Le vélo dans votre entreprise</strong>
 
-    	<h1>Le vélo dans votre entreprise :</h1>
-    	<div>
-    	<p>Quel est le contexte géographique de votre entreprise : </p>
-    	<p>{{form.ctxgeolib}}</p>
-    	</div>
-    	<div>
-    	<p>Globalement, comment qualifieriez-vous son accessibilité à vélo ? (relief, qualité des aménagement, présence de parking à vélo...) : </p>
-    	<p>{{form.access}}</p>
-    	</div>
-    	<div>
-    	<p>Certains de vos salariés viennent déjà à vélo ? Combien de jours par semaine ?</p>
-    	<p>{{form.freq}}</p>    		
-    	</div>
-    	<div>
-    	<p>Pour les personnes suivantes, comment qualifieriez-vous la perception du vélo ?</p>
-    	<p>La direction : {{form.g1}}</p>
-    	<p>Les salariés : {{form.g2}}</p>
-    	</div>
-    	<div>
-    	<p>Quel est l'état d'avancée de votre PDM ? </p>
-    	<p>{{form.g3}}</p>
-    	</div>
-        <div>
-        <p>Votre entreprise a-t-elle mis en place des actions en faveur du vélo ?</p>
-        <p>{{form.g4}}</p>
-        </div>
-         <!-- rajouter une question sur les actions vélo
+                            <div class="Form-group Form-group--questions">
+                                <div class="Form-group-item">
+                                    <div class="Form-question">Le contexte géographique de votre entreprise</div>
+                                    <ul class="Form-choiceGroup">
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--icon" for="Field0.0">
+                                                <input type="radio" name="field0" value="" id="Field0.0">
+                                                <svg height="77" width="77">
+                                                    <use xlink:href="#Rural" />
+                                                </svg>
+                                                <span>Rural</span>
+                                            </label>
+                                        </li>
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--icon" for="Field0.1">
+                                                <input type="radio" name="field0" value="" id="Field0.1">
+                                                <svg height="77" width="77">
+                                                    <use xlink:href="#City" />
+                                                </svg>
+                                                <span>Urbain</span>
+                                            </label>
+                                        </li>
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--icon" for="Field0.2">
+                                                <input type="radio" name="field0" value="" id="Field0.2">
+                                                <svg height="77" width="77">
+                                                    <use xlink:href="#BusinessPark" />
+                                                </svg>
+                                                <span>Péri-urbain</span>
+                                            </label>
+                                        </li>
+                                        {{form.ctxgeolib}}
+                                    </ul>
 
+                                </div>
+                                <div class="Form-group-divider"></div>
+                                <div class="Form-group-item">
+                                    <div class="Form-question">Comment qualifiez-vous son accessibilité à vélo, de votre lieu de travail&nbsp;?<br><i>(aménagement cyclable, relief, parking à vélo&hellip;)</i></div>
+                                </div>
+                                <div class="Form-group-item">
+                                    <div class="Form-question">A combien estimez-vous le % de salariés venant travailler à vélo&nbsp;?</div>
+                                </div>
+                                <div class="Form-group-divider"></div>
+                                <div class="Form-group-item">
+                                    <div class="Form-question">Pour les personnes suivantes, comment qualifiez-vous la perception du vélo&nbsp;?</div>
+                                </div>
+                                <div class="Form-group-item">
+                                    <div class="Form-question">Quel est l’état d’avancée de votre plan de déplacement (PDM, PDIE&hellip;)</div>
+                                </div>
+                                <div class="Form-group-divider"></div>
+                                <div class="Form-group-item">
+                                    <div class="Form-question">Votre entreprise a-t-elle mis en place des actions en faveur du vélo&nbsp;</div>
+                                </div>
+                            </div>
+                        </div>
 
-         -->
+                        <div class="Form-set Form-set--highlighted">
+                            <strong class="Form-caption">Vous</strong>
+                            <div class="Form-group Form-group--user">
+                                
+                            </div>
+                        </div>
 
-		   
-		<!--{{ form.as_p }}-->
-       
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Envoi</button>
-    </form>
+                        <div class="Form-footer">
+                            <button type="submit" class="Button">C’est parti&nbsp;!</button>
+                            <p class="Form-footer-notice">tous les champs sont obligatoires</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
 {% endblock %}
+
+
+
+
+                                    <p>Votre nom : {{form.nom}}</p>
+                                    <p>Votre entreprise : {{form.entrep}}</p>
+                                    <p>Votre Ville : {{form.ville}}</p>
+                                    <p>Nombre de salariés : {{form.nbsal}}</p>
+
+                                    <h1>Le vélo dans votre entreprise :</h1>
+                                    <div>
+                                    <p>Quel est le contexte géographique de votre entreprise : </p>
+                                    <p>{{form.ctxgeolib}}</p>
+                                    </div>
+                                    <div>
+                                    <p>Globalement, comment qualifieriez-vous son accessibilité à vélo ? (relief, qualité des aménagement, présence de parking à vélo...) : </p>
+                                    <p>{{form.access}}</p>
+                                    </div>
+                                    <div>
+                                    <p>Certains de vos salariés viennent déjà à vélo ? Combien de jours par semaine ?</p>
+                                    <p>{{form.freq}}</p>            
+                                    </div>
+                                    <div>
+                                    <p>Pour les personnes suivantes, comment qualifieriez-vous la perception du vélo ?</p>
+                                    <p>La direction : {{form.g1}}</p>
+                                    <p>Les salariés : {{form.g2}}</p>
+                                    </div>
+                                    <div>
+                                    <p>Quel est l'état d'avancée de votre PDM ? </p>
+                                    <p>{{form.g3}}</p>
+                                    </div>
+                                    <div>
+                                    <p>Votre entreprise a-t-elle mis en place des actions en faveur du vélo ?</p>
+                                    <p>{{form.g4}}</p>
+                                    </div>
+                                
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Envoi</button>
+
+
+
+
+
+
+
+
+
+

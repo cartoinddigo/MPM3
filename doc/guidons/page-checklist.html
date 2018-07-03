@@ -1,11 +1,9 @@
-{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="fr-FR"
       dir="ltr"
       class="no-js"
       prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#"
 >
-<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -25,17 +23,17 @@
         <meta name="twitter:card" content="summary">
     <!--<meta name="twitter:site" content="@">-->
 
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'css/assets/media/favicons/apple-touch-icon.png' %}"> 
-        <link rel="shortcut icon" href="{% static 'css/assets/media/favicons/favicon.ico'%}" />
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'css/assets/media/favicons/32x32.png'%}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'css/assets/media/favicons/16x16.png'%}">
-        <link rel="manifest" href="{% static 'css/assets/media/favicons/manifest.json'%}">
-        <link rel="mask-icon" href="{% static 'css/assets/media/favicons/safari-pinned-tab.svg'%}" color="#038cab">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon.png">
+        <link rel="shortcut icon" href="assets/media/favicons/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/media/favicons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/media/favicons/16x16.png">
+        <link rel="manifest" href="assets/media/favicons/manifest.json">
+        <link rel="mask-icon" href="assets/media/favicons/safari-pinned-tab.svg" color="#038cab">
         <meta name="theme-color" content="#08cf74">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i,800|Oswald:200,400">
-        <link rel="stylesheet" href="{% static 'css/assets/vendor/normalize.css/normalize.css'%}" media="screen">
-        <link rel="stylesheet" href="{% static 'css/assets/styles/style.css'%}" media="screen">
+        <link rel="stylesheet" href="assets/vendor/normalize.css/normalize.css" media="screen">
+        <link rel="stylesheet" href="assets/styles/style.css" media="screen">
 
         <script>(function(html){html.className=html.className.replace(/\bno-js\b/,"js")})(document.documentElement)</script>
     </head>
@@ -47,7 +45,6 @@
             <br>Inddigo ne garantit plus l’ouverture correcte de son site web via le navigateur Internet Explorer <![if IE 7]>7<![endif]><![if IE 8]>8<![endif]><![if IE 9]>9<![endif]> et ses versions antérieures.<br>Notre site web est cependant toujours consultable, mais certaines fonctionnalités pourraient ne pas fonctionner comme elles le devraient.<br>Face à cela, Inddigo recommande à ses visiteurs de mettre à jour leur navigateur. Pour plus d’informations, consultez&nbsp;: <a href="https://www.whatbrowser.org/" target="_blank" rel="nofollow">whatbrowser.org</a> - un site géré par Google.
         </div>
         <![endif]-->
-
         <noscript>
         <style>#NoscriptAlert{margin:0 0 1px;border:3px solid #c9d6e3;padding:.6875em 17px;color:#596063;font: 13px/1.37 sans-serif;background-color:#f7fafd}</style>
         <div id="NoscriptAlert">
@@ -133,11 +130,10 @@
             </svg>
         </div>
 
-
         <div class="Site">
 
             <header class="Header">
-                <div class="Header-logo"><img src="{% static 'css/assets/media/placeholders/logo-trivalis.jpg'%}" alt=""></div>
+                <div class="Header-logo"><img src="assets/media/placeholders/logo-trivalis.jpg" alt=""></div>
 
                 <h1 class="Header-headline">
                     <b class="Header-name"><span class="c-lightgreen">GUI</span>DONS</b>
@@ -145,15 +141,61 @@
                 </h1>
             </header>
 
-            {% block content %}
-            {% endblock %}  
+            <section class="Section">
+                <header class="Section-header">
+                    <div class="Wysiwyg u-textCenter">
+                        <h2>Check-list d’actions</h2>
+                    </div>
+                </header>
+                <div class="Section-inner">
+                    <div class="Grid" grid-gap="all">
+                        <div class="Grid-item" grid-size="1/3 1@L">
 
+                            <div class="Wysiwyg">
+                                <h3>Pour <span class="c-lightgreen">votre direction</span></h3>
+                                <p><b class="c-yellow">Votre direction est favorable à l’usage des vélos dans le cadre de déplacement domicile-travail et/ou professionnels des salariés.</b></p>
+                                <ul>
+                                    <li>Il est donc important de mettre en avant les différentes actions qui peuvent être mis en place au regard de la pratique des salariés.</li>
+                                    <li>En effet un salarié régulier n’a pas les mêmes attentes qu’un usager occasionnel, ainsi il est possible d’adapter les actions à mettre en œuvre pour mieux répondre aux besoins.</li>
+                                    <li>De plus il est possible de mettre en place des actions qui peuvent inciter des non-usagers actuels à expérimenter le vélo tout en respectant la sécurité de ceux-ci.</li>
+                                </ul>
+                                <p></p>
+                            </div>
 
+                        </div>
+                        <div class="Grid-item" grid-size="1/3 1@L">
+
+                            <div class="Wysiwyg">
+                                <h3>Pour <span class="c-lightgreen">vos salariés</span></h3>
+                                <p><b class="c-yellow">Vos salariés ont besoin d’être encouragés dans leur pratique quotidienne du vélo&nbsp;:</b></p>
+                                <ul>
+                                    <li><b>L’IKV</b> (Indemnité Kilométrique Vélo) est une bonne solution pour fidéliser les cyclistes occassionnels&nbsp;!<br><br><b>L’IKV</b> permet d’augmenter la pratique&nbsp;!<br><br>Vous pouvez d’ailleurs simuler l’impact de l’IKV avec le lien suivant&nbsp;:<br><br><a class="Wysiwyg-link" href="http://www.villes-cyclables.org/modules/kameleon/upload/ikv_outil_budget_vf.xls">www.villes-cyclables.org/modules/kameleon/upload/ikv_outil_budget_vf.xls</a></li>
+                                    <li><b>L’aide à l’achat de vélos spéciaux</b> (vélos à assistance électrique, vélos pliants, vélos cargos&hellip;) peuvent permettre à vos salariés d’adapter leur vélo à leurs besoins du moment&nbsp;!<br><br>Adapter son vélo en fonction de sa vie personnelle et professionnelle, c’est fidèliser la pratique&nbsp;!</li>
+                                </ul>
+                                <p></p>
+                            </div>
+
+                        </div>
+                        <div class="Grid-item" grid-size="1/3 1@L">
+
+                            <div class="Wysiwyg">
+                                <h3>Pour <span class="c-lightgreen">votre plan mobilité</span></h3>
+                                <p><b class="c-yellow">Votre plan de mobilité est en cours.</b><br><b>Les actions pour le vélo sont au cœur d’une démarche de développement durable.</b></p>
+                                <p><b>L’entreprise, le salarié, la collectivité, tout le monde est gagnant.</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="Section-footer">
+                    <a class="Button Button--wide Button--yellow" href="#">Sauvegarder</a>
+                    <br><a class="Section-back" href="page-resultats.html">Revenir aux résultats du calcul</a>
+                </footer>
+            </section>
 
             <footer class="Footer">
                 <div class="Footer-inner u-cf">
                     <div class="Inddigo u-floatRight">
-                        <a href="http://www.inddigo.com/" target="_blank"><img src="{% static 'css/assets/media/svgs/inddigo.svg'%}" alt="Logo Inddigo" width="30" height="45.6"></a>
+                        <a href="http://www.inddigo.com/" target="_blank"><img src="assets/media/svgs/inddigo.svg" alt="Logo Inddigo" width="30" height="45.6"></a>
                     </div>
                 </div>
             </footer>

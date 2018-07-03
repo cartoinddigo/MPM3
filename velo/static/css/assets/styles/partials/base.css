@@ -1,0 +1,396 @@
+/*
+ * 1. Homogénéisation de l'apparence des éléments HTML
+ * ===
+ */
+body {
+  margin: 0;
+}
+main {
+  display: block;
+}
+hr {
+  border-color: inherit;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+pre {
+  overflow: auto;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+}
+ol,
+ul {
+  padding-left: 40px;
+}
+dl dl,
+ol dl,
+ul dl {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+dd {
+  margin-bottom: 0;
+  margin-right: 0;
+  margin-top: 0;
+}
+a {
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active,
+a:hover {
+  outline: none;
+}
+b,
+strong {
+  font-weight: inherit;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+small {
+  font-size: .82em;
+  font-size: calc(1em * .8125);
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+@supports ((-webkit-text-decoration: underline dotted) or (text-decoration: underline dotted)) {
+
+  abbr[title] {
+    border-bottom: none;
+    -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted;
+  }
+
+}
+sub,
+sup {
+  font-size: .82em;
+  font-size: calc(1em * .8125);
+  line-height: 0;
+}
+q {
+  quotes: "\00AB\202F" "\202F\00BB" "\201C" "\201D";
+}
+table {
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+th,
+td {
+  border: 1px solid;
+  vertical-align: top;
+}
+a img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+fieldset {
+  border: 2px groove;
+  border-color: inherit;
+  padding: .35em .625em .75em;
+  padding: .35em calc(1em * .625) .75em;
+}
+legend {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0 2px;
+  white-space: normal;
+}
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+button {
+  overflow: visible;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+button,
+select {
+  text-transform: none;
+}
+textarea {
+  overflow: auto;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0 !important;
+  padding: 0 !important;
+}
+[type=radio],
+[type=checkbox] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+[type=reset],
+[type=submit],
+[type=button] {
+  -webkit-appearance: button;
+     -moz-appearance: button;
+          appearance: button;
+}
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .54;
+}
+::-moz-placeholder {
+  color: inherit;
+  opacity: .54;
+}
+:-ms-input-placeholder {
+  color: rgba(0, 0, 0, .54);
+/*opacity: .54;*/
+}
+
+
+
+/*
+ * 2. Réinitialisation de l'apparence des éléments HTML
+ * ===
+ */
+html {
+  font-family: sans-serif;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+}
+body {
+  background-color: #fff;
+  color: #000;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, sans-serif;
+  font-size: 1em;
+}
+hr {
+  border-style: solid;
+  border-width: 1px 0 0;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+figure {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+table {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+}
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+}
+dd {
+  margin-left: 0;
+}
+ol,
+ul {
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+}
+th,
+td {
+  border: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img,
+iframe,
+object,
+svg,
+audio,
+video {
+  vertical-align: bottom;
+}
+svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+iframe {
+  border: 0;
+}
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell;
+}
+[type=text],
+[type=password],
+[type=number],
+[type=email],
+[type=tel],
+[type=url],
+[type=search],
+select,
+textarea {
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid;
+  border-radius: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: normal;
+  padding: 1px;
+}
+select {
+  max-width: 100%;
+}
+textarea {
+  resize: vertical;
+  vertical-align: text-top;
+}
+[type=hidden] {
+  display: none !important;
+}
+button,
+[type=reset],
+[type=submit],
+[type=button] {
+  background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==);
+  border-radius: 0;
+}
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+[type=search]::-webkit-search-cancel-button,
+[type=search]::-webkit-search-decoration {
+  display: none;
+}
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+}
+
+
+
+/*
+ * 3. Classes "utiles"
+ * ===
+ */
+.u-cf:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+.u-cfAlt {
+  overflow: hidden !important;
+}
+.u-cfBi:before,
+.u-cfBi:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.u-floatLeft {
+  float: left !important;
+}
+.u-floatRight {
+  float: right !important;
+}
+.u-hidden {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap!important;
+  width: 1px !important;
+}
+.u-textTruncate {
+  max-width: 100%;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+}
+.u-textCenter {
+  text-align: center;
+}
+
+
+
+/*
+ * 4.
+ * ===
+ */
+.Embed {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+.Embed-ratio {
+  display: block;
+  padding-bottom: 100%;
+  width: 100%;
+}
+.Embed-content iframe {
+  max-width: 100%;
+}
+.Embed[embed-aspectRatio] .Embed-content {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%
+}
+.Embed[embed-aspectRatio] .Embed-content iframe {
+  height: 100%;
+  width: 100%;
+}

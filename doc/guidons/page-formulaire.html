@@ -1,11 +1,9 @@
-{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="fr-FR"
       dir="ltr"
       class="no-js"
       prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#"
 >
-<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -25,17 +23,17 @@
         <meta name="twitter:card" content="summary">
     <!--<meta name="twitter:site" content="@">-->
 
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'css/assets/media/favicons/apple-touch-icon.png' %}"> 
-        <link rel="shortcut icon" href="{% static 'css/assets/media/favicons/favicon.ico'%}" />
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'css/assets/media/favicons/32x32.png'%}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'css/assets/media/favicons/16x16.png'%}">
-        <link rel="manifest" href="{% static 'css/assets/media/favicons/manifest.json'%}">
-        <link rel="mask-icon" href="{% static 'css/assets/media/favicons/safari-pinned-tab.svg'%}" color="#038cab">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon.png">
+        <link rel="shortcut icon" href="assets/media/favicons/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/media/favicons/32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/media/favicons/16x16.png">
+        <link rel="manifest" href="assets/media/favicons/manifest.json">
+        <link rel="mask-icon" href="assets/media/favicons/safari-pinned-tab.svg" color="#038cab">
         <meta name="theme-color" content="#08cf74">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i,800|Oswald:200,400">
-        <link rel="stylesheet" href="{% static 'css/assets/vendor/normalize.css/normalize.css'%}" media="screen">
-        <link rel="stylesheet" href="{% static 'css/assets/styles/style.css'%}" media="screen">
+        <link rel="stylesheet" href="assets/vendor/normalize.css/normalize.css" media="screen">
+        <link rel="stylesheet" href="assets/styles/style.css" media="screen">
 
         <script>(function(html){html.className=html.className.replace(/\bno-js\b/,"js")})(document.documentElement)</script>
     </head>
@@ -47,7 +45,6 @@
             <br>Inddigo ne garantit plus l’ouverture correcte de son site web via le navigateur Internet Explorer <![if IE 7]>7<![endif]><![if IE 8]>8<![endif]><![if IE 9]>9<![endif]> et ses versions antérieures.<br>Notre site web est cependant toujours consultable, mais certaines fonctionnalités pourraient ne pas fonctionner comme elles le devraient.<br>Face à cela, Inddigo recommande à ses visiteurs de mettre à jour leur navigateur. Pour plus d’informations, consultez&nbsp;: <a href="https://www.whatbrowser.org/" target="_blank" rel="nofollow">whatbrowser.org</a> - un site géré par Google.
         </div>
         <![endif]-->
-
         <noscript>
         <style>#NoscriptAlert{margin:0 0 1px;border:3px solid #c9d6e3;padding:.6875em 17px;color:#596063;font: 13px/1.37 sans-serif;background-color:#f7fafd}</style>
         <div id="NoscriptAlert">
@@ -133,11 +130,10 @@
             </svg>
         </div>
 
-
         <div class="Site">
 
             <header class="Header">
-                <div class="Header-logo"><img src="{% static 'css/assets/media/placeholders/logo-trivalis.jpg'%}" alt=""></div>
+                <div class="Header-logo"><img src="assets/media/placeholders/logo-trivalis.jpg" alt=""></div>
 
                 <h1 class="Header-headline">
                     <b class="Header-name"><span class="c-lightgreen">GUI</span>DONS</b>
@@ -145,15 +141,204 @@
                 </h1>
             </header>
 
-            {% block content %}
-            {% endblock %}  
+            <section class="Section Section--form">
+                <div class="Section-inner">
+                    <form class="Form" action="page-resultats.html">
+                        <div class="Form-set">
+                            <strong class="Form-caption">Le vélo dans votre entreprise</strong>
 
+                            <div class="Form-group Form-group--questions">
+                                <div class="Form-group-item">
+                                    <div class="Form-question">Le contexte géographique de votre entreprise</div>
+                                    <ul class="Form-choiceGroup">
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--icon" for="Field0.0">
+                                                <input type="radio" name="field0" value="" id="Field0.0">
+                                                <svg height="77" width="77">
+                                                    <use xlink:href="#Rural" />
+                                                </svg>
+                                                <span>Rural</span>
+                                            </label>
+                                        </li>
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--icon" for="Field0.1">
+                                                <input type="radio" name="field0" value="" id="Field0.1">
+                                                <svg height="77" width="77">
+                                                    <use xlink:href="#City" />
+                                                </svg>
+                                                <span>Urbain</span>
+                                            </label>
+                                        </li>
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--icon" for="Field0.2">
+                                                <input type="radio" name="field0" value="" id="Field0.2">
+                                                <svg height="77" width="77">
+                                                    <use xlink:href="#BusinessPark" />
+                                                </svg>
+                                                <span>Péri-urbain</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="Form-group-divider"></div>
+                                <div class="Form-group-item">
+                                    <div class="Form-question">Comment qualifiez-vous son accessibilité à vélo, de votre lieu de travail&nbsp;?<br><i>(aménagement cyclable, relief, parking à vélo&hellip;)</i></div>
+                                    <ul class="Form-choiceGroup">
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--icon" for="Field1.0">
+                                                <input type="radio" name="field1" value="" id="Field1.0">
+                                                <svg height="77" width="77">
+                                                    <use xlink:href="#SmileGood" />
+                                                </svg>
+                                                <span>Bonne</span>
+                                            </label>
+                                        </li>
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--icon" for="Field1.1">
+                                                <input type="radio" name="field1" value="" id="Field1.1">
+                                                <svg height="77" width="77">
+                                                    <use xlink:href="#SmileMedium" />
+                                                </svg>
+                                                <span>Moyenne</span>
+                                            </label>
+                                        </li>
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--icon" for="Field1.2">
+                                                <input type="radio" name="field1" value="" id="Field1.2">
+                                                <svg height="77" width="77">
+                                                    <use xlink:href="#SmileBad" />
+                                                </svg>
+                                                <span>Mauaise</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                    <div class="Form-error">merci de renseigner cette information</div>
+                                </div>
+                                <div class="Form-group-item">
+                                    <div class="Form-question">A combien estimez-vous le % de salariés venant travailler à vélo&nbsp;?</div>
+                                    <div class="Form-control Form-control--custom0">
+                                        <select class="Form-field" name="field2" id="Field2">
+                                            <option value="">&hellip;&nbsp;%</option>
+                                            <option value="">Demande de brochures</option>
+                                            <option value="">Demande d’informations</option>
+                                        </select>
+                                        <label for=""><input type="checkbox"> Ne sais pas estimer</label>
+                                    </div>
+                                </div>
+                                <div class="Form-group-divider"></div>
+                                <div class="Form-group-item">
+                                    <div class="Form-question">Pour les personnes suivantes, comment qualifiez-vous la perception du vélo&nbsp;?</div>
+                                    <div class="Form-control">
+                                        <label class="Form-label" for="Field3">Pour la direction&nbsp;:</label>
+                                        <select class="Form-field" name="field3" id="Field3">
+                                            <option value="">Inscription</option>
+                                            <option value="">Demande de brochures</option>
+                                            <option value="">Demande d’informations</option>
+                                        </select>
+                                    </div>
+                                    <div class="Form-control">
+                                        <label class="Form-label" for="Field4">Pour les salariés&nbsp;:</label>
+                                        <select class="Form-field" name="field4" id="Field4">
+                                            <option value="">Inscription</option>
+                                            <option value="">Demande de brochures</option>
+                                            <option value="">Demande d’informations</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="Form-group-item">
+                                    <div class="Form-question">Quel est l’état d’avancée de votre plan de déplacement (PDM, PDIE&hellip;)</div>
+                                    <ul class="Form-choiceGroup">
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--button" for="Field5.0">
+                                                <input type="radio" name="field5" value="" id="Field5.0">
+                                                <span>Inexistant</span>
+                                            </label>
+                                        </li>
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--button" for="Field5.1">
+                                                <input type="radio" name="field5" value="" id="Field5.1">
+                                                <span>En réflexion</span>
+                                            </label>
+                                        </li>
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--button" for="Field5.2">
+                                                <input type="radio" name="field5" value="" id="Field5.2">
+                                                <span>Actif</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="Form-group-divider"></div>
+                                <div class="Form-group-item">
+                                    <div class="Form-question">Votre entreprise a-t-elle mis en place des actions en faveur du vélo&nbsp;</div>
+                                    <ul class="Form-choiceGroup">
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--button" for="Field6.0">
+                                                <input type="radio" name="field6" value="" id="Field6.0">
+                                                <span>Aucune</span>
+                                            </label>
+                                        </li>
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--button" for="Field6.1">
+                                                <input type="radio" name="field6" value="" id="Field6.1">
+                                                <span>Quelques-unes</span>
+                                            </label>
+                                        </li>
+                                        <li class="Form-choiceGroup-item">
+                                            <label class="Form-choice Form-choice--button" for="Field6.2">
+                                                <input type="radio" name="field6" value="" id="Field6.2">
+                                                <span>Nombreuses</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 
+                        </div>
+                        <div class="Form-set Form-set--highlighted">
+                            <strong class="Form-caption">Vous</strong>
+
+                            <div class="Form-group Form-group--user">
+                                <div class="Form-group-item">
+                                    <div class="Form-control Form-control--error">
+                                        <label class="Form-label" for="Field7">Votre nom</label>
+                                        <input class="Form-field" type="text" name="field7" id="Field7" required>
+                                    </div>
+                                    <div class="Form-error">merci de renseigner cette information</div>
+                                </div>
+                                <div class="Form-group-item">
+                                    <div class="Form-control">
+                                        <label class="Form-label" for="Field8">Votre entreprise</label>
+                                        <input class="Form-field" type="text" name="field8" id="Field8" required>
+                                    </div>
+                                </div>
+                                <div class="Form-group-item">
+                                    <div class="Form-control">
+                                        <label class="Form-label" for="Field9">Votre vile</label>
+                                        <input class="Form-field" type="text" name="field9" id="Field9" required>
+                                    </div>
+                                </div>
+                                <div class="Form-group-item">
+                                    <div class="Form-control">
+                                        <label class="Form-label" for="Field10">Nombre de salariés</label>
+                                        <input class="Form-field" type="number" name="field10" id="Field10" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="Form-footer">
+                            <button class="Button" type="submit">C’est parti&nbsp;!</button>
+                            <p class="Form-footer-notice">tous les champs sont obligatoires</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
 
             <footer class="Footer">
                 <div class="Footer-inner u-cf">
                     <div class="Inddigo u-floatRight">
-                        <a href="http://www.inddigo.com/" target="_blank"><img src="{% static 'css/assets/media/svgs/inddigo.svg'%}" alt="Logo Inddigo" width="30" height="45.6"></a>
+                        <a href="http://www.inddigo.com/" target="_blank"><img src="assets/media/svgs/inddigo.svg" alt="Logo Inddigo" width="30" height="45.6"></a>
                     </div>
                 </div>
             </footer>

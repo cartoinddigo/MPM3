@@ -1,0 +1,286 @@
+.Form {
+  font-size: 1rem;
+}
+
+.Form-set {
+  padding: 2.75em 0; /* 44px 0 */
+}
+.Form-set:first-child {
+  padding-top: 0;
+}
+.Form-set--highlighted {
+  background-color: #f3f3f3;
+  position: relative;
+}
+.Form-set--highlighted::before {
+  background-color: inherit;
+  bottom: 0;
+  content: "";
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, 0);
+  width: 100vw;
+  z-index: -1;
+}
+
+.Form-caption {
+  color: #2f7354;
+  display: block;
+  font-size: 1.875em; /* 30px */
+  font-weight: 900;
+  line-height: 1.467em; /* 44px */
+  margin: 0 0 .733em; /* 0 0 22px */
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.Form-group {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 0 -10px;
+}
+.Form-group-item {
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+.Form-group-divider {
+  background: linear-gradient(to bottom, transparent 2px, #171717 2px, #171717 3px) 100% 0% / 1px 3px repeat-y;
+  width: 1px;
+}
+
+.Form-group--questions {
+  align-items: stretch;
+}
+.Form-group--questions .Form-group-item,
+.Form-group--questions .Form-group-divider {
+  margin: 2.75em 0 0 ; /* 44px 0 0 */
+}
+.Form-group--questions .Form-group-item {
+  flex: 1 1 410px;
+  max-width: 500px;
+  padding: 0 10px 2.0625em; /* 0 0 33px */
+  width: 100%;
+}
+@media (max-width: 840px) {
+
+  .Form-group--questions .Form-group-item,
+  .Form-group--questions .Form-group-divider {
+    margin: .6875em 0 0 ; /* 11px 0 0 */
+  }
+
+  .Form-group--questions .Form-group-divider {
+    display: none;
+  }
+
+}
+
+.Form-group--user {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+.Form-group--user .Form-group-item {
+  flex: 1 1 auto;
+  max-width: 400px;
+  margin: 0 0 1.375em; /* 0 0 22px */
+  width: 100%;
+}
+
+.Form-question {
+  color: #c19f19;
+  font-size: 1.125em; /* 18px */
+  font-weight: 600;
+  line-height: 1.222em; /* 22px */
+  margin: 0 0 1.222em; /* 0 0 22px */
+  text-align: center;
+}
+.Form-question i {
+  font-weight: 400;
+}
+
+.Form-control {
+  display: flex;
+  flex-flow: column;
+  margin: 0 auto;
+  max-width: 340px;
+}
+.Form-control + .Form-control {
+  margin-top: 1.375em; /* 22px */
+}
+
+.Form-label {
+  color: #2f7354;
+  cursor: pointer;
+  font-size: .875em; /* 14px */
+  font-weight: 700;
+  margin: 0 0 .393em; /* 0 0 5.5px */
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.Form-field {
+  border: 1px solid #2f7354;
+  color: inherit;
+  line-height: 1.375em;
+  padding: .6875em 10px;
+  width: 100%;
+}
+select.Form-field {
+  background: #fff url(../../media/svgs/ico-select-expand.svg) top 50% right 12.5px / 15px 9px no-repeat;
+  font-style: italic;
+  padding-right: 40px;
+  position: relative;
+  text-align: center;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+select.Form-field::-ms-expand {
+  display: none;
+}
+
+.Form-choiceGroup {
+  align-items: stretch;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  max-width: 390px;
+  margin: 0 auto;
+}
+.Form-choiceGroup-item {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 0%;
+  flex-flow: column wrap;
+  padding: 0 5px;
+}
+
+.Form-choice {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+.Form-choice input {
+  position: absolute;
+  transform: scale(0);
+}
+
+.Form-choice--icon {
+  flex-flow: column;
+}
+.Form-choice--icon svg {
+  color: #2f7354;
+  fill: #f3f3f3;
+  margin: 0 0 .34375em; /* 0 0 5.5px */
+  transition: color .4s ease-in-out, fill .4s ease-in-out;
+}
+.Form-choice--icon span {
+  color: #2f7354;
+  font-size: .875em; /* 14px */
+  font-weight: 700;
+  line-height: 1.143em; /* 22px */
+  text-align: center;
+  text-transform: uppercase;
+}
+.Form-choice--icon input:checked ~ svg {
+  color: #fff;
+  fill: #08cf74;
+}
+.Form-choice--icon:hover svg,
+.Form-choice--icon:focus svg {
+  color: #08cf74;
+}
+
+.Form-choice--button span {
+  box-sizing: border-box;
+  color: #2f7354;
+  font-size: .75em; /* 12px */
+  font-weight: 700;
+  line-height: 1.833em; /* 22px */
+  padding: 1.375em 0; /* 16.5px 0 */
+  text-align: center;
+  text-transform: uppercase;
+  transition: color .4s ease-in-out;
+  width: 100%;
+}
+.Form-choice--button span::before {
+  border: 1px solid #2f7354;
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: background-color .4s ease-in-out, border-color .4s ease-in-out;
+  z-index: -1;
+}
+.Form-choice--button input:checked ~ span {
+  color: #fff;
+}
+.Form-choice--button input:checked ~ span::before {
+  background-color: #08cf74;
+  border-color: #08cf74;
+}
+.Form-choice--button:hover span,
+.Form-choice--button:focus span {
+  color: #08cf74;
+}
+.Form-choice--button:hover span::before,
+.Form-choice--button:focus span::before {
+  border-color: #08cf74;
+}
+
+.Form-footer {
+  margin: 2.75em 0 0; /* 44px 0 0 */
+  text-align: center;
+}
+.Form-footer-notice {
+  color: #2f7354;
+  font-size: .875em; /* 14px */
+  font-style: italic;
+  line-height: 1.143em; /* 22px */
+  margin: 1.143em 0 0; /* 22px 0 0 */
+}
+
+/**
+ * Champ customisé : select + checkbox.
+ * ===
+ */
+.Form-control--custom0 {
+  align-items: baseline;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  max-width: none;
+}
+.Form-control--custom0 .Form-field {
+  max-width: 140px;
+}
+.Form-control--custom0 label {
+  margin: 0 0 0 20px;
+}
+
+/**
+ * Erreur(s)
+ * ===
+ */
+.Form-error {
+  color: #dd4806;
+  font-size: .875em; /* 14px */
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.571em; /* 22px */
+  margin: .786em 0 0; /* 11px 0 0 */
+  text-align: center;
+}
+.Form-control--error .Form-field {
+  border-color: #dd4806;
+}

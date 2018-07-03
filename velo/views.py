@@ -16,6 +16,9 @@ def detailsplayer(request, pk):
 def home(request):
 	return render(request, 'velo/home.html', {})
 
+def ihome(request):
+	return render(request, 'doc/guidons/index.html', {})
+
 
 def newplayer(request):
 	if request.method == "POST":

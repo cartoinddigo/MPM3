@@ -1,0 +1,504 @@
+@import "partials/fonts.css";
+
+@import "partials/base.css";
+@import "partials/forms.css";
+@import "partials/wysiwyg.css";
+
+
+
+/**
+ * Classes utiles
+ * ===
+ */
+.c-white      { color: #ffffff !important; }
+.c-green      { color: #2f7354 !important; }
+.c-lightgreen { color: #08cf74 !important; }
+.c-yellow     { color: #c19f19 !important; }
+
+
+
+/**
+ * Grille "Desktop first"
+ * ===
+ */
+.Grid {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+}
+.Grid-item {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding: 0;
+}
+
+.Grid--equalHeight {
+  align-items: stretch;
+}
+.Grid--equalHeight > .Grid-item {
+  display: flex;
+}
+
+[grid-gap~="column"] { margin: 0 -10px; }
+[grid-gap~="column"] > .Grid-item { padding: 0 10px; }
+[grid-gap~="row"] { margin: -.6875em 0; /* 11px 0 */ }
+[grid-gap~="row"] > .Grid-item { padding: .6875em 0; /* 11px 0 */ }
+[grid-gap~="all"] { margin: -.6875em -10px; /* -11px -10px */ }
+[grid-gap~="all"] > .Grid-item { padding: .6875em 10px; /* 11px 10px */ }
+
+.Grid[grid-align~="center"] {
+  justify-content: center;
+}
+.Grid[grid-valign~="start"]   { align-items: flex-start; }
+.Grid[grid-valign~="end"]     { align-items: flex-end; }
+.Grid[grid-valign~="stretch"] { align-items: stretch; }
+.Grid[grid-valign~="center"]  { align-items: center; }
+
+[grid-size~="0"] {
+  display: none;
+}
+[grid-size~="1"]   { width: 100%; }
+[grid-size~="1/2"] { width:  50%; }
+[grid-size~="1/3"] { width:  33.333%; }
+[grid-size~="2/3"] { width:  66.667%; }
+[grid-size~="1/4"] { width:  25%; }
+[grid-size~="3/4"] { width:  75%; }
+
+
+@media (max-width: 1049px) { /* 1049px < XL */
+
+  [grid-gap~="all@XL"] { margin: -.6875em -10px; /* -11px -10px */ }
+  [grid-gap~="all@XL"] > .Grid-item { padding: .6875em 10px; /* 11px 10px */ }
+
+}
+@media (max-width: 944px) { /* L < 945 */
+
+  .Grid [grid-size*="@L"]:not([grid-size~="0@L"]) {
+    display: inline-block;
+  }
+  .Grid--equalHeight > [grid-size*="@L"]:not([grid-size~="0@L"]) {
+    display: flex;
+  }
+
+  .Grid .Grid-item[grid-size~="0@L"] {
+    display: none;
+  }
+  [grid-size~="1@L"]   { width: 100%; }
+  [grid-size~="1/2@L"] { width:  50%; }
+  [grid-size~="1/3@L"] { width:  33.333%; }
+  [grid-size~="2/3@L"] { width:  66.667%; }
+  [grid-size~="1/4@L"] { width:  25%; }
+  [grid-size~="3/4@L"] { width:  75%; }
+
+}
+@media (max-width: 629px) { /* M < 630 */
+
+  .Grid [grid-size*="@M"]:not([grid-size~="0@M"]) {
+    display: inline-block;
+  }
+  .Grid--equalHeight > [grid-size*="@M"]:not([grid-size~="0@M"]) {
+    display: flex;
+  }
+  .Grid .Grid-item[grid-size~="0@M"] {
+    display: none;
+  }
+  [grid-size~="1@M"]   { width: 100%; }
+  [grid-size~="1/2@M"] { width:  50%; }
+  [grid-size~="1/3@M"] { width:  33.333%; }
+  [grid-size~="2/3@M"] { width:  66.667%; }
+  [grid-size~="1/4@M"] { width:  25%; }
+  [grid-size~="3/4@M"] { width:  75%; }
+
+}
+
+
+
+/*
+ * Boutons
+ * ---
+ *
+ * Objet réutilisable dans l'ensemble des composants du site.
+ * Par défaut, les boutons ont : un fond vert clair.
+ *
+ * Modificateurs disponibles :
+ * - couleurs : jaune ;
+ * - largeurs : large (310px).
+ */
+.Button {
+  background: #08cf74 url(../media/images/bg-button-corner.png) 100% 100% / auto 100% no-repeat;
+  border: 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Oswald, sans-serif;
+  font-size: 1.375rem; /* 22px */
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1em; /* 22px */
+  margin: 0;
+  min-width: 190px;
+  overflow: hidden;
+  padding: .875em 55px .875em 25px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.15s;
+  white-space: normal;
+  user-select: none;
+  z-index: 0;
+
+  -webkit-appearance: none;
+}
+.Button::before {
+  background-color: rgba(0, 0, 0, .15);
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: skew(-41deg) scaleX(0);
+  transform-origin: 100% 0%;
+  transition: transform .3s ease-in-out;
+  width: 100%;
+  z-index: -1;
+}
+.Button::after {
+  background-color: currentColor;
+  bottom: .625em;
+  content: "";
+  height: 2px;
+  left: 25px;
+  position: absolute;
+  width: 40px;
+}
+.Button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+.Button:hover,
+.Button:focus,
+.Button:active {
+  text-decoration: none;
+}
+.Button:hover::before,
+.Button:focus::before,
+.Button:active::before {
+  transform: skew(-41deg) scaleX(1);
+}
+.Button:disabled,
+.Button.is-disabled {
+  cursor: default;
+}
+
+/*
+ * Modificateur(s) de couleur
+ */
+.Button--yellow { background-color: #c19f19; }
+.Button--green  { background-color: #08cf74; }
+
+/*
+ * Modifications(s) de largeur
+ */
+.Button--wide {
+  max-width: 100%;
+  width: 310px;
+}
+
+
+
+html {
+  font: 16px/1.375 Open Sans, sans-serif;
+}
+body {
+  color: #484848;
+  background-color: #fff;
+}
+
+
+
+/**
+ * Header
+ * ===
+ */
+.Header {
+  font-size: 1rem;
+  margin: 0 0 3.5em; /* 0 0 77px */
+}
+.Header-logo {
+  background-color: #fff;
+  padding: .6875em 10px; /* 11px 10px */
+  text-align: center;
+}
+.Header-headline {
+  background: #f3f3f3 url(../media/images/bg-header-headline.png) 50% / auto 100% no-repeat;
+  padding: 1.375em 10px; /* 22px 10px */
+  text-align: center;
+}
+.Header-name {
+  color: #2f7354;
+  display: block;
+  font: italic 200 4.6875em/1.0267em Oswald, sans-serif; /* 75px/77px */
+}
+.Header-baseline {
+  background: linear-gradient(to right, currentColor, currentColor) 50% 100% / 40px 1px no-repeat;
+  color: #c09d11;
+  display: block;
+  font: italic 400 1.1875em/1.158em Oswald, sans-serif; /* 19px/22px */
+  padding: 0 0 .868em; /* 0 0 16.5px */
+  text-transform: uppercase;
+}
+
+
+
+/**
+ * Footer
+ * ===
+ */
+.Footer {
+  font-size: 1rem;
+  margin: 1.375em 0 2.0625em; /* 22px 0 33px */
+}
+.Footer-inner {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 10px;
+}
+
+
+
+/**
+ * Logo Inddigo
+ * ===
+ */
+.Inddigo {
+  align-items: center;
+  color: #2f7354;
+  display: flex;
+  flex-flow: row nowrap;
+  font-family: Oswald, sans-serif;
+  font-style: italic;
+  font-weight: 200;
+}
+.Inddigo::before {
+  content: "par\A0";
+}
+.Inddigo img {
+  margin: 0 0 0 10px;
+}
+
+
+
+/**
+ * Section(s)
+ * ===
+ */
+.Section {
+  font-size: 1rem;
+  overflow: hidden;
+}
+.Section-header {
+  margin: 0 0 2.0625em; /* 0 0 33px */
+  padding: 0 10px;
+}
+.Section-inner {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 1.375em 10px; /* 22px 10px */
+}
+.Section-footer {
+  margin: 1.375em 0 0; /* 22px 0 0 */
+  padding: 0 10px;
+  text-align: center;
+}
+/* Lien de retour (généralement dans le pied de page) */
+.Section-back {
+  background: url(../media/images/bg-section-back.png) 0 50% no-repeat;
+  color: #2f7354;
+  display: inline-block;
+  font-style: italic;
+  margin: 0 15px 0 0;
+  padding: 0 0 0 15px;
+  text-decoration: underline;
+}
+.Section-back:hover,
+.Section-back:focus {
+  text-decoration: none;
+}
+.Section-back:not(:only-child) {
+  margin-top: .6875em; /* 11px */
+}
+
+/*
+ * Modificateur identifiant la première section afin de réduire
+ * sa largeur utile.
+ */
+.Section--start .Section-inner {
+  max-width: 600px;
+}
+
+
+
+/**
+ * Liste des chiffres clés
+ * ===
+ */
+.KeyFigures {
+  font-size: 1rem;
+}
+
+/**
+ * Chiffre clé
+ * ===
+ */
+.KeyFigure {
+  align-items: flex-end;
+  align-self: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 1rem;
+  justify-content: center;
+  padding: 1.375em 0; /* 22px 0 0 */
+  width: 100%;
+}
+.KeyFigure-value,
+.KeyFigure-name {
+  box-sizing: border-box;
+  width: 240px;
+}
+.KeyFigure-value {
+  align-items: baseline;
+  color: #08cf74;
+  display: flex;
+  flex-flow: row nowrap;
+  font-weight: 700;
+  justify-content: center;
+  margin: 0 0 .34375em; /* 0 0 5.5px */
+}
+.KeyFigure-value-number {
+  font-size: 2.5em; /* 40px */
+  line-height: 1.1em; /* 44px */
+}
+.KeyFigure-value-unit {
+  font-size: 1.5em; /* 24px */
+  line-height: 1.14583em; /* 27.5em */
+}
+.KeyFigure-name {
+  color: #2f7354;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (min-width: 630px) {
+
+  .KeyFigures .Grid-item:not(:last-child) {
+    background: linear-gradient(to bottom, transparent 2px, #171717 2px, #171717 3px) 100% 0% / 1px 3px repeat-y;
+  }
+
+  .KeyFigure {
+    padding: 2.0625em 0; /* 33px 0 0 */
+  }
+
+}
+@media (max-width: 629px) and (min-width: 520px) {
+
+  .KeyFigure {
+    align-items: center;
+  }
+  .KeyFigure-name {
+    text-align: left;
+  }
+  .KeyFigure-value {
+    justify-content: flex-start;
+    margin-bottom: 0;
+    padding-right: 20px;
+  }
+  .KeyFigure-value-number {
+    text-align: right;
+    width: 80%;
+  }
+
+}
+
+
+
+/**
+ * Ensemble des résultats
+ * ===
+ */
+.Results {
+  display: flex;
+  flex-flow: row wrap;
+  margin: -.6875em -10px;
+  padding: 0 0 1.375em;
+}
+.Results-column {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 1 380px;
+  padding: .6875em 10px;
+  width: 50%;
+}
+
+/**
+ * Résultat
+ * ===
+ */
+.Result {
+  display: flex;
+  flex-flow: column wrap;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+}
+.Result:not(:last-child) {
+  margin-bottom: 1.375em;
+}
+.Result-text {
+  color: #c19f19;
+  display: block;
+  font-size: 1.125em; /* 18px */
+  font-weight: 600;
+  line-height: 1.222em; /* 22px */
+  margin: 0 0 .611em; /* 0 0 11px */
+}
+.Result-value {
+  align-items: center;
+  background-color: #f3f3f3;
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 1.375em 20px;
+}
+.Result-value--highlighted {
+  border: 2px solid #08cf74;
+}
+.Result-value-description {
+  align-self: flex-end;
+  color: #2f7354;
+  flex: 0 0 100%;
+  font-style: italic;
+  font-weight: 600;
+  margin: 0 0 .6875em; /* 0 0 11px */
+}
+.Result-value-number {
+  align-self: flex-start;
+  color: #08cf74;
+  font-size: 3.25em; /* 52px */
+  font-weight: 700;
+  line-height: .846em; /* 44px */
+  text-transform: uppercase;
+}
+.Result-value-number--small {
+  font-size: 1.25em; /* 20px */
+  line-height: 1.1em; /* 22px */
+}
+.Result-value-icon {
+  align-self: flex-start;
+  color: #2f7354;
+  margin: 0 0 0 10px;
+}

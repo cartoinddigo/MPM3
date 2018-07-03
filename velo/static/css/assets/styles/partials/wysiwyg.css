@@ -1,0 +1,134 @@
+.Wysiwyg {
+  font-size: 1rem; /* 16px */
+  line-height: 1.375em; /* 22px */
+}
+.Wysiwyg::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+.Wysiwyg > *:first-child {
+  margin-top: 0 !important;
+}
+.Wysiwyg > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.Wysiwyg a:not(.Button):not(.Wysiwyg-link),
+.Wysiwyg label {
+  color: #2f7354;
+  text-decoration: underline;
+}
+.Wysiwyg label {
+  cursor: pointer;
+}
+.Wysiwyg a:hover,
+.Wysiwyg a:focus,
+.Wysiwyg label:hover,
+.Wysiwyg label:focus {
+  text-decoration: none;
+}
+
+.Wysiwyg h2 {
+  color: #2f7354;
+  font-size: 1.875em; /* 30px */
+  font-weight: 900;
+  line-height: 1.467em; /* 44px */
+  margin: 0 0 .733em; /* 0 0 22px */
+  text-transform: uppercase;
+}
+.Wysiwyg h2 a {
+  color: inherit;
+}
+.Wysiwyg h3 {
+  color: #2f7354;
+  font-size: 1.125em; /* 18px */
+  font-weight: 900;
+  line-height: 1.222em; /* 22px */
+  margin: 0 0 1.222em; /* 0 0 22px */
+  text-transform: uppercase;
+}
+.Wysiwyg h3 a {
+  color: inherit;
+}
+
+.Wysiwyg p,
+.Wysiwyg hr {
+  margin: 1.375em 0; /* 22px 0 */
+}
+
+.Wysiwyg ul,
+.Wysiwyg ol {
+  margin: 1.375em 0; /* 22px 0 */
+  overflow: hidden;
+  padding: 0 0 0 30px;
+}
+.Wysiwyg li ul,
+.Wysiwyg li ol {
+  margin-bottom: .6875em; /* 11px */
+  margin-top: .6875em; /* 11px */
+  overflow: visible;
+}
+.Wysiwyg li {
+  margin: 1.375em 0; /* 5.5px 0 */
+}
+.Wysiwyg li:first-child {
+  margin-top: 0
+}
+.Wysiwyg li:last-child {
+  margin-bottom: 0
+}
+
+.Wysiwyg ol {
+  list-style-type: decimal;
+}
+.Wysiwyg ul {
+  list-style-image: url(../../media/wysiwyg/img-disc.svg);
+}
+.Wysiwyg ul ul,
+.Wysiwyg ol ul {
+  list-style-image: url(../../media/wysiwyg/img-circle.svg);
+}
+.Wysiwyg ol ol ul,
+.Wysiwyg ol ul ul,
+.Wysiwyg ul ol ul,
+.Wysiwyg ul ul ul {
+  list-style-image: url(../../media/wysiwyg/img-square.svg);
+}
+
+.Wysiwyg img {
+  font-size: 1rem;
+  height: auto;
+  max-width: 100%;
+}
+
+.Wysiwyg .alignnone {
+  margin: 1.375em 0; /* 22px 0 */
+}
+.Wysiwyg .aligncenter:not(table) {
+  display: block;
+  margin: 1.375em auto; /* 22px auto */
+}
+.Wysiwyg .alignright,
+.Wysiwyg .alignleft {
+  margin: .1875em 0 .6875em; /* 3px 0 11px */
+  max-width: 50%;
+}
+.Wysiwyg .alignright {
+  float: right;
+  margin-left: 20px;
+}
+.Wysiwyg .alignleft {
+  float: left;
+  margin-right: 20px;
+}
+
+
+
+.Wysiwyg-link {
+  background: url(../../media/wysiwyg/link.svg) 0 50% / 22px 22px no-repeat;
+  color: #2f7354;
+  display: inline-block;
+  padding: 0 0 0 30px;
+  word-break: break-word;
+}
