@@ -28,7 +28,7 @@ class Player(models.Model):
     #mail = models.EmailField()
 
     nbsal = models.PositiveIntegerField(verbose_name = "Nombre de salariés",)
-    pccycliste = models.PositiveIntegerField(verbose_name = "NPourcentages cyclistes",)
+    pccycliste = models.PositiveIntegerField(verbose_name = "NPourcentages cyclistes", default = '3',)
     freq = models.IntegerField(default=65,choices=FREQF_LIB,verbose_name = "fréquence d'utilisation")
     #freq = models.PositiveIntegerField(default = 65, validators=[MinValueValidator(0), MyMaxValueValidator(100,"The value should be lesser than %(limit_value)s.")], verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
