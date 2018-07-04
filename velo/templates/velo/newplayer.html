@@ -11,7 +11,10 @@
                         <div class="Form-set Form-set--highlighted">
 
                             <strong class="Form-caption">Le vélo dans votre entreprise</strong>
+                            <div class="Form-group Form-group--questions">
+
                             <!--{{ form.as_p }}-->
+                             <div class="Form-group-item">
                             <div class="Form-control">
                             <div class="Form-field">
                             <div class="Form-label">Nombre de salariés sur votre site</div>                             
@@ -25,7 +28,10 @@
                             <p class="Form-control">{{form.pccycliste}}</p>
                             </div>
                             </div>
+                            </div>
 
+                            <div class="Form-group-divider"></div>
+                            <div class="Form-group-item">
                             <div class="Form-control">
                             <div class="Form-field">
                             <p class="Form-label">Le context géographique de votre site</p>
@@ -39,10 +45,16 @@
                             <p class="Form-control"> {{form.access}}</p>
                             </div>
                             </div>
-                            <br>
-                            <br>
+                            </div>
 
+                            </div>
+                        </div>
+
+                            
+                            <div class="Form-set Form-set--highlighted">
                             <strong class="Form-caption">PERCEPTION DU VELO</strong>
+                            <div class="Form-group Form-group--questions">
+
                             <div class="Form-group-item">
                             <div class="Form-control">
                             <div class="Form-field">
@@ -55,33 +67,52 @@
                             </div>
                             </div>
                             </div>
-                            <br>
-                            <br>
+                            <div class="Form-group-divider"></div>
 
 
+
+                            <div class="Form-group-item">
                             <div class="Form-control">
                             <div class="Form-field">
+                            <div class="Form-question">Actions mise en place</div>
 
                             <p class="Form-label">Quel est l’état d’avancée de votre plan de déplacement (PDM, PDIE&hellip;)</p>
                             <p class="Form-control">{{form.g3}}</p>
                             <p class="Form-label">Votre entreprise a-t-elle mis en place des actions en faveur du vélo&nbsp;</p>
                             <p class="Form-control">{{form.g4}}</p>
+                        </div>
                             </div>
                             </div>
-                            <br>
-                            <br>
+                            </div>
+                            </div>
 
+
+                            <div class="Form-set Form-set--highlighted">
                             <strong class="Form-caption">VOUS</strong>
-                            <div class="Form-control">
-                            <div class="Form-field">
-                            <p class="Form-label">Votre nom : </p>
-                            <p class="Form-control">{{form.nom}}</p>
-                            <p class="Form-label">Votre entreprise : </p>
-                            <p class="Form-control">{{form.entrep}}</p>
-                            <p class="Form-label">Votre Ville : </p>
-                            <p class="Form-control">{{form.ville}}</p>
-                            </div>
-                            </div>
+                            <div class="Form-group Form-group--user">
+
+                                <div class="Form-group-item">
+                                    <div class="Form-control Form-control--error">
+                                        <label class="Form-label" for="nom">Votre nom</label>
+                                        {{form.nom}}
+                                    </div>
+                                </div>
+
+                                <div class="Form-group-item">
+                                    <div class="Form-control Form-control--error">
+                                        <label class="Form-label" for="entreprise">Votre entreprise</label>
+                                        {{form.entrep}}
+                                    </div>
+                                </div>
+
+                                <div class="Form-group-item">
+                                    <div class="Form-control Form-control--error">
+                                        <label class="Form-label" for="ville">Votre ville</label>
+                                        {{form.ville}}
+                                    </div>
+                                </div>
+
+                        </div>
                         </div>
                     </div>
 
