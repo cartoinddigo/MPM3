@@ -14,23 +14,25 @@
                             <!--{{ form.as_p }}-->
                             <div class="Form-control">
                             <div class="Form-label">Nombre de salariés sur votre site</div>                             
-                            {{form.nbsal}}
+                            <p class="Form-field">{{form.nbsal}}</p>
                             </div>
 
                             <div class="Form-control">
                             <div class="Form-label">A combien estimez-vous la part de salariés venant travailler à vélo&nbsp;?</div>
-                            {{form.pccycliste}}
+                            <p class="Form-field">{{form.pccycliste}}</p>
                             </div>
 
-                            <div class="Form-group-item">
+                            <div class="Form-control">
                             <p class="Form-label">Le context géographique de votre site</p>
-                            <p class="Form-control">{{form.ctxgeolib}}</p>
+                            <p class="Form-field">{{form.ctxgeolib}}</p>
                             </div>
 
-                            <div class="Form-group-item">
+                            <div class="Form-control">
                             <p class="Form-label">Comment qualifiez-vous son accessibilité à vélo, de votre lieu de travail&nbsp;?<br><i>(aménagement cyclable, relief, parking à vélo&hellip;)</i></p>
-                            <p class="Form-control">{{form.access}}</p>
+                            <p class="Form-field"> {{form.access}}</p>
                             </div>
+                            <br>
+                            <br>
 
                             <strong class="Form-caption">PERCEPTION DU VELO</strong>
                             <div class="Form-group-item">
@@ -45,6 +47,10 @@
                             <p class="Form-control">{{form.g3}}</p>
                             <p class="Form-label">Votre entreprise a-t-elle mis en place des actions en faveur du vélo&nbsp;</p>
                             <p class="Form-control">{{form.g4}}</p>
+                            <br>
+                            <br>
+
+                            <strong class="Form-caption">VOUS</strong>
                             <p class="Form-label">Votre nom : </p>
                             <p class="Form-control">{{form.nom}}</p>
                             <p class="Form-label">Votre entreprise : </p>
