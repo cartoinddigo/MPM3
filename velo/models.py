@@ -96,7 +96,7 @@ class Player(models.Model):
 
     def evocycliste(self):
         """fonction d'evaluation de l'evolution du nombre de cyclistes"""
-        self.evocycl = self.pvelo()*(1+0.5) 
+        self.evocycl = self.pvelo()*(1+0.25) 
         self.evocycl = ceil(self.evocycl)
         return self.evocycl
 
