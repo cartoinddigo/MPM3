@@ -1,0 +1,99 @@
+{% extends 'velo/index.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if players.published_date %}
+            <div class="date">
+                {{ players.published_date }}
+            </div>
+        {% endif %}
+        
+        <h2>ScoreMoyen : <span class="big">{{ players.score}} !</span></h2>
+        <p>Bonjour <span class="big">{{ players.nom}} !</span>  <br>Sur {{ players.nbsal}} salariés, votre entreprise {{palyers.entrep}} peux compter sur environ <span class = "big">{{players.pvelo}}</span> cyclistes.</p>
+        <hr>
+        <p>Selon nos estimations, la mise en place de l'IKV vous permetrait d'élever ce chiffre à <br><span class = "big">{{players.evocycliste}} cyclistes</span> la première année !</p>
+        <p>Cela représente près de {{players.evoar}} trajets Domicile / Travail réalisés à vélo.<br> ({{players.evoarp}} trajets, en fonction de l'accessibilité à votre site) pour un total de </p>
+        <p><span class="big">{{players.distance}} kilomètres</span> parcourus en 12 mois.<br>({{players.distmoy}}km en moyenne par cycliste)</p>
+        <p>soit un cout total de <span class="big">{{players.coutdist}} €</span> hors plafond</p>
+        <p><span class="big">{{players.coutpt}} €</span> avec un plafond de 200 € par salaré.</p>
+        <hr>
+        <h1>Actions a mettre en oeuvre pour le développement du vélo :</h1>
+        <div>
+            <h3>Recommandations Direction : </h3>
+            {% if players.recodir == '1' %}
+            <div >
+            <p>Actions de sensibilisation fortes à mettre en place auprès de la direction</p>
+            </div>
+            {% endif %}
+            {% if players.recodir == '2' %}
+            <div >
+            <p>Actions pour conforter la motivation de la direction</p>
+            </div>
+            {% endif %}
+            {% if players.recodir == '3'  %}
+            <div >
+            <p>Direction OK</p>
+            </div>
+            {% endif %}
+        </div>
+        <div>
+            <h3>Recommandations Salariés : </h3>
+            {% if players.recosal == '1' %}
+            <div >
+            <p>Un playdoyer actif doit être mis en place auprès des salariés</p>
+            </div>
+            {% endif %}
+            {% if players.recosal == '2' %}
+            <div >
+            <p>Il faut conforter la motivation de vos salariés !</p>
+            <ul>
+                <li>Mettre en place des actions d'information et sensibilisation</li>
+                <li>Remise en selle</li>
+            </ul>
+            </div>
+            {% endif %}
+            {% if players.recosal == '3'  %}
+            <div >
+            <p>Encourager l'utilisation quotidienne du vélo !</p>
+            <ul>
+                <li>Aménagements sur le site (parking vélo, douches, ...)</li>
+                <li>Mise en place de l'IKV</li>
+                <li>Référent vélo</li>
+            </ul>
+            </div>
+            {% endif %}
+            {% if players.recosal == '4'  %}
+            <div >
+            <p>Vous êtes les meilleurs ! </p>
+            </div>
+            {% endif %}
+        </div>
+        <div>
+            <h3>Recommandation PDM : </h3>
+            {% if players.recopde == '1' %}
+            <div >
+            <p>Argumentaire en amont d'une démarche de PDM</p>
+            </div>
+            {% endif %}
+            {% if players.recopde == '2' %}
+            <div >
+            <p>Solutions d'accompagnement accompagner dans la réalisations d'actions déja envisagées</p>
+            <ul>
+                <li>puce 1</li>
+                <li>puce 2</li>
+            </ul>
+            </div>
+            {% endif %}
+            {% if players.recopde == '3'  %}
+            <div >
+            <p>Des idées pour dynamiser un PDM existant</p>
+            <ul>
+                <li>puce 1</li>
+                <li>puce 2</li>
+            </ul>
+            </div>
+            {% endif %}
+        </div>
+        
+    </div>
+{% endblock %}

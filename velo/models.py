@@ -16,20 +16,23 @@ class Player(models.Model):
 
     MG1=((2, 'Réticent'),(25, 'Non sensibilisé'),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
     MG2=((10, 'Réfractaire aux vélos'),(25, 'Sensibilisé mais pas confiant'),(45, 'Usager ponctuel pour le loisir'),(75, 'Usager quotidien'),(100, 'Cycliste expert'),)
-    MG3=((10, 'Pas acté'),(50, 'Démarche en cours'),(100, 'Démarche lancée'),)
-    MG4=((10, 'Aucune action envisagée'),(50, 'Actions vélos en réflexion'),(100, 'Actions vélos mises en place'),) 
+    MG3=((10, 'Inexistant'),(50, 'En réflexion'),(100, 'Actif'),)
+    MG4=((10, 'Aucune action envisagée'),(50, 'Actions vélos en réflexion'),(100, 'Actions vélos mises en place'),)
+
+    PCY=((3, 'Moins de 5 %'),(20,'Environ un quart'),(55, 'Environ la moitié'),(80,'Plus de la moitié'),(50,'Ne sais pas estimer'))
 
 
 
     entrep = models.CharField(default = 'votre entreprise', max_length=250,verbose_name = "Le nom de votre entreprise",)
     nom = models.CharField(default = 'votre nom', max_length=250,verbose_name = "votre nom",)
-    adresse = models.CharField(max_length=250,verbose_name = "Votre adresse",)
+    #adresse = models.CharField(max_length=250,verbose_name = "Votre adresse",)
     ville = models.CharField(max_length=250,verbose_name = "Votre ville",)
     #mail = models.EmailField()
 
     nbsal = models.PositiveIntegerField(verbose_name = "Nombre de salariés",)
-    pccycliste = models.PositiveIntegerField(verbose_name = "NPourcentages cyclistes", default = '3',)
-    freq = models.IntegerField(default=65,choices=FREQF_LIB,verbose_name = "fréquence d'utilisation")
+    pccycliste = models.PositiveIntegerField(choices=PCY,verbose_name = "NPourcentages cyclistes", default = '50',)
+    freq = 65
+    #freq = models.IntegerField(default=65,choices=FREQF_LIB,verbose_name = "fréquence d'utilisation")
     #freq = models.PositiveIntegerField(default = 65, validators=[MinValueValidator(0), MyMaxValueValidator(100,"The value should be lesser than %(limit_value)s.")], verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
     access = models.CharField(default='Bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",max_length=10)
