@@ -13,50 +13,75 @@
                             <strong class="Form-caption">Le vélo dans votre entreprise</strong>
                             <!--{{ form.as_p }}-->
                             <div class="Form-control">
+                            <div class="Form-field">
                             <div class="Form-label">Nombre de salariés sur votre site</div>                             
-                            <p class="Form-field">{{form.nbsal}}</p>
+                            <p class="Form-control">{{form.nbsal}}</p>
+                            </div>
                             </div>
 
                             <div class="Form-control">
+                            <div class="Form-field">
                             <div class="Form-label">A combien estimez-vous la part de salariés venant travailler à vélo&nbsp;?</div>
-                            <p class="Form-field">{{form.pccycliste}}</p>
+                            <p class="Form-control">{{form.pccycliste}}</p>
+                            </div>
                             </div>
 
                             <div class="Form-control">
+                            <div class="Form-field">
                             <p class="Form-label">Le context géographique de votre site</p>
-                            <p class="Form-field">{{form.ctxgeolib}}</p>
+                            <p class="Form-control">{{form.ctxgeolib}}</p>
+                            </div>
                             </div>
 
                             <div class="Form-control">
+                            <div class="Form-field">
                             <p class="Form-label">Comment qualifiez-vous son accessibilité à vélo, de votre lieu de travail&nbsp;?<br><i>(aménagement cyclable, relief, parking à vélo&hellip;)</i></p>
-                            <p class="Form-field"> {{form.access}}</p>
+                            <p class="Form-control"> {{form.access}}</p>
+                            </div>
                             </div>
                             <br>
                             <br>
 
                             <strong class="Form-caption">PERCEPTION DU VELO</strong>
                             <div class="Form-group-item">
+                            <div class="Form-control">
+                            <div class="Form-field">
                             <div class="Form-question">Pour les personnes suivantes, comment qualifiez-vous la perception du vélo&nbsp;?</div>
+
                             <p class="Form-label">Votre entreprise : </p>
                             <p class="Form-control">{{form.g1}}</p>
                             <p class="Form-label">Vos salariés : </p>
                             <p class="Form-control">{{form.g2}}</p>
                             </div>
+                            </div>
+                            </div>
+                            <br>
+                            <br>
+
+
+                            <div class="Form-control">
+                            <div class="Form-field">
 
                             <p class="Form-label">Quel est l’état d’avancée de votre plan de déplacement (PDM, PDIE&hellip;)</p>
                             <p class="Form-control">{{form.g3}}</p>
                             <p class="Form-label">Votre entreprise a-t-elle mis en place des actions en faveur du vélo&nbsp;</p>
                             <p class="Form-control">{{form.g4}}</p>
+                            </div>
+                            </div>
                             <br>
                             <br>
 
                             <strong class="Form-caption">VOUS</strong>
+                            <div class="Form-control">
+                            <div class="Form-field">
                             <p class="Form-label">Votre nom : </p>
                             <p class="Form-control">{{form.nom}}</p>
                             <p class="Form-label">Votre entreprise : </p>
                             <p class="Form-control">{{form.entrep}}</p>
                             <p class="Form-label">Votre Ville : </p>
                             <p class="Form-control">{{form.ville}}</p>
+                            </div>
+                            </div>
                         </div>
                     </div>
 
