@@ -8,7 +8,50 @@
                     <form method="POST" class="post-form" >
                     {% csrf_token %}
                     <div class="Form-set">
-                    {{ form.as_p }}
+                        <div class="Form-set Form-set--highlighted">
+
+                            <strong class="Form-caption">Le vélo dans votre entreprise</strong>
+                            <!--{{ form.as_p }}-->
+                            <div class="Form-control">
+                            <div class="Form-label">Nombre de salariés sur votre site</div>                             
+                            {{form.nbsal}}
+                            </div>
+
+                            <div class="Form-control">
+                            <div class="Form-label">A combien estimez-vous la part de salariés venant travailler à vélo&nbsp;?</div>
+                            {{form.pccycliste}}
+                            </div>
+
+                            <div class="Form-group-item">
+                            <p class="Form-label">Le context géographique de votre site</p>
+                            <p class="Form-control">{{form.ctxgeolib}}</p>
+                            </div>
+
+                            <div class="Form-group-item">
+                            <p class="Form-label">Comment qualifiez-vous son accessibilité à vélo, de votre lieu de travail&nbsp;?<br><i>(aménagement cyclable, relief, parking à vélo&hellip;)</i></p>
+                            <p class="Form-control">{{form.access}}</p>
+                            </div>
+
+                            <strong class="Form-caption">PERCEPTION DU VELO</strong>
+                            <div class="Form-group-item">
+                            <div class="Form-question">Pour les personnes suivantes, comment qualifiez-vous la perception du vélo&nbsp;?</div>
+                            <p class="Form-label">Votre entreprise : </p>
+                            <p class="Form-control">{{form.g1}}</p>
+                            <p class="Form-label">Vos salariés : </p>
+                            <p class="Form-control">{{form.g2}}</p>
+                            </div>
+
+                            <p class="Form-label">Quel est l’état d’avancée de votre plan de déplacement (PDM, PDIE&hellip;)</p>
+                            <p class="Form-control">{{form.g3}}</p>
+                            <p class="Form-label">Votre entreprise a-t-elle mis en place des actions en faveur du vélo&nbsp;</p>
+                            <p class="Form-control">{{form.g4}}</p>
+                            <p class="Form-label">Votre nom : </p>
+                            <p class="Form-control">{{form.nom}}</p>
+                            <p class="Form-label">Votre entreprise : </p>
+                            <p class="Form-control">{{form.entrep}}</p>
+                            <p class="Form-label">Votre Ville : </p>
+                            <p class="Form-control">{{form.ville}}</p>
+                        </div>
                     </div>
 
 
