@@ -7,7 +7,9 @@
 
                     <form method="POST" class="post-form" >
                     {% csrf_token %}
+                    <div class="Form-set">
                     {{ form.as_p }}
+                    </div>
 
 
 
@@ -171,55 +173,14 @@
 
 
 
-                    
+                    <div class="Form-footer">
                     <button type="submit" class="Button">Envoi</button>
-                    
+                    </div>
 
                    </form> 
                 </div>
             </section>
 {% endblock %}
-
-                        <p>Votre nom : </p>
-                        <p>{{form.nom}}</p>
-                        <p>Votre entreprise : </p>
-                        <p>{{form.entrep}}</p>
-                        <p>Votre Ville : </p>
-                        <p>Nombre de salariés : </p>
-                        <p>{{form.nbsal}}</p>
-
-                        <h1>Le vélo dans votre entreprise :</h1>
-                        <div>
-                        <p>Quel est le contexte géographique de votre entreprise : </p>
-                        <p>{{form.ctxgeolib}}</p>
-                        </div>
-                        <div>
-                        <p>Globalement, comment qualifieriez-vous son accessibilité à vélo ? (relief, qualité des aménagement, présence de parking à vélo...) : </p>
-                        <p>{{form.access}}</p>
-                        </div>
-                        <div>
-                        <p>Certains de vos salariés viennent déjà à vélo ? Combien de jours par semaine ?</p>
-                        <p>{{form.freq}}</p>            
-                        </div>
-                        <div>
-                        <p>Pour les personnes suivantes, comment qualifieriez-vous la perception du vélo ?</p>
-                        <p>La direction : {{form.g1}}</p>
-                        <p>Les salariés : {{form.g2}}</p>
-                        </div>
-                        <div>
-                        <p>Quel est l'état d'avancée de votre PDM ? </p>
-                        <p>{{form.g3}}</p>
-                        </div>
-                        <div>
-                        <p>Votre entreprise a-t-elle mis en place des actions en faveur du vélo ?</p>
-                        <p>{{form.g4}}</p>
-                        </div>
-                        <div>
-                        <p>Pourcentage cycliste connu ?</p>
-                        <p>{{form.pccycliste}}</p>
-                        <p>Pourcentage cyclistes actifs :</p>
-                        <p>{{form.pccyclichk}}</p>
-                        </div>
 
 
 
