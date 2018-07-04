@@ -2,7 +2,7 @@
 
 {% block content %}
 	{% for player in players %}
-		<div class="post">
+		<div class="Results-column">
 	    	<h1><a href="{% url 'detailsplayer' pk=player.pk %}">{{player.nom}}</a></h1>
 	    	<div class = "date">publié : {{ player.published_date}}</div>
 			<p>nb sal : {{ player.nbsal}}.</p>
