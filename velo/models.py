@@ -23,11 +23,11 @@ class Player(models.Model):
 
 
 
-    entrep = models.CharField(default = 'votre entreprise', max_length=250,verbose_name = "Le nom de votre entreprise",)
-    nom = models.CharField(default = 'votre nom', max_length=250,verbose_name = "votre nom",)
+    entrep = models.CharField(max_length=250,verbose_name = "Le nom de votre entreprise",)
+    nom = models.CharField( max_length=250,verbose_name = "votre nom",)
     #adresse = models.CharField(max_length=250,verbose_name = "Votre adresse",)
-    ville = models.CharField(default = 'votre ville', max_length=250,verbose_name = "Votre ville",)
-    #mail = models.EmailField()
+    ville = models.CharField( max_length=250,verbose_name = "Votre ville",)
+    mail = models.EmailField(verbose_name = "Votre email",)
 
     nbsal = models.PositiveIntegerField(verbose_name = "Nombre de salariés",)
     pccycliste = models.PositiveIntegerField(choices=PCY,verbose_name = "NPourcentages cyclistes", default = '50',)
@@ -37,6 +37,8 @@ class Player(models.Model):
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
     access = models.CharField(default='Bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",max_length=10)
     ctxgeolib = models.FloatField(choices=CTX_GEO_LIB,default='Centre-ville',verbose_name = "Contexte geographique")
+
+    PM = models.IntegerField(default = 0, verbose_name = "Part Modale vélo Attendue (Pour débugages)",)
 
     g1 = models.IntegerField(choices=MG1,verbose_name = "Motivation de la direction de l’entreprise")
     g2 = models.IntegerField(choices=MG2,verbose_name = "Motivation des salariés")

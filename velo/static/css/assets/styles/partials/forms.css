@@ -108,6 +108,14 @@
   margin: 0 auto;
   max-width: 340px;
 }
+
+.Form-controlB {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0 auto;
+  width: 340px;
+}
 .Form-control + .Form-control {
   margin-top: 1.375em; /* 22px */
 }
@@ -129,6 +137,16 @@
   padding: .6875em 10px;
   width: 100%;
 }
+
+.Form-fieldR {
+  border: 1px solid #2f7354;
+  background-color: pink;
+  color: inherit;
+  line-height: 1.375em;
+  padding: .6875em 10px;
+  width: 100%;
+}
+
 select.Form-field {
   background: #fff url(../../media/svgs/ico-select-expand.svg) top 50% right 12.5px / 15px 9px no-repeat;
   font-style: italic;
