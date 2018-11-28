@@ -99,32 +99,45 @@
                                 <h3>Pour <span class="c-lightgreen">votre direction</span>,<br> recomendation [{{players.recodir}}]</h3>
                                 {% if players.recodir == '1' %}
                                 <div >
-                                <p><b class="c-yellow">Votre direction a une réticence très forte vis-à-vis du vélo</b>par conséquent il est nécessaire d'identifier les raisons.</p>
+                                <p><b class="c-yellow">Votre direction a une réticence très forte vis-à-vis du vélo</b></p>
+                                <p>Voici quelques arguments factuels à avancer :</p>
                                 <ul>
-                                    <li>Cela peut notamment passer par l'analyse du fichier d'accidentologie des déplacements domicile-travail et/ou déplacements professionnels afin d'identifier si cette réticence et en lien direct avec la réalité de la sinistralité. </li>
-                                    <li>Si la réticence est issue du manque d'aménagement la priorité sera de pouvoir échanger avec les collectivités compétentes pour identifier les marges de manœuvre permettant de proposer des aménagements un lien notamment avec les lieux d'habitation des salariés</li>
+                                    <li>Relativiser l’accidentalité à vélo : En 2016, les cyclistes représentent 4,6 % des morts sur la route. Ce chiffre baisse régulièrement alors que la pratique est en hausse. A noter que 2/3 de ces accidents ont lieu hors agglomérations et que 43% des victimes avaient +65 ans.</li>
+                                    <li>Réduire l’absentéisme : il est 15% moins fort chez les cyclistes que chez les non cyclistes.</li>
+                                    <li>Augmenter la productivité : une entreprise encourageant ses salariés à la pratique d’une activité physique et sportive peut enregistrer entre 2,5% et 9,1% de gains de productivité.</li>
                                 </ul>
 
                                 </div>
                                 {% endif %}
                                 {% if players.recodir == '2' %}
                                 <div >
-                                <p><b class="c-yellow">Votre direction à quelques réticences concernant la pratique du vélo.</b><br><br>Mais connaissez-vous les avantages et inconvénients pour les salariés :</p>
+                                <p><b class="c-yellow">Votre direction n'est pas sensibilisée aux bénéfices du vélo pour les salariés et ne perçoit pas encore ce que cela pourrait apporter à l’entreprise.</b></p>
                                 <ul>
-                                    <li>Ponctualité</li>
-                                    <li>augmentation de la productivité</li>
-                                    <li>baisse du nombre d'arrêt maladie</li>
+                                    <li>Rappeler que la pratique du vélo permet de réduire l’absentéisme (écart de 15% entre les cyclistes et les non cyclistes) et qu’il permet d’augmenter la productivité de l’entreprise (entre 2,5 à 9% selon une étude du Medef en 2015)</li>
+                                    <li>Communiquer sur le potentiel de cyclistes de votre entreprise que l’outil “Guidons” vous a permis d’établir </li>
+                                    <li>Mettez en avant des actions mutualisables avec les entreprises voisines : améliorer l’accès à votre quartier, événements de sensibilisation, achat groupé d’arceaux ou de matériel, flotte de vélo partagés</li>
+                                    <li>Recherchez les financements mobilisables. Par exemple les sociétés qui mettent gratuitement à disposition de leurs salariés une flotte de vélos peuvent, sous certaines conditions, bénéficier d'une réduction d'impôt.</li>
                                 </ul>
-                                <p>Si la réticence est également issue de la sinistralité des accidents domicile travail et/ou déplacements professionnels, une analyse des différents accidents sur les 3 ans permettra d'objectiver la situation.</p>
-                                <p>Si le manque d'aménagements cyclables est cité comme facteur de réticence, des échanges avec les collectivités compétentes sur ce domaine, sont à mener.</p>
                                 </div>
                                 {% endif %}
                                 {% if players.recodir == '3'  %}
-                                <p><b class="c-yellow">Votre direction est favorable à l’usage des vélos dans le cadre de déplacement domicile-travail et/ou professionnels des salariés.</b></p>
+                                <p><b class="c-yellow">Votre direction est sensibilisée au développement durable mais n’encourage pas encore les mobilités alternatives de manière organisée.</b></p>
+                                <p>Vous pouvez structurer votre démarche grâce à ces actions :</p>
                                 <ul>
-                                    <li>Il est donc important de mettre en avant les différentes actions qui peuvent être mis en place au regard de la pratique des salariés.</li>
-                                    <li>En effet un salarié régulier n’a pas les mêmes attentes qu’un usager occasionnel, ainsi il est possible d’adapter les actions à mettre en œuvre pour mieux répondre aux besoins.</li>
-                                    <li>De plus il est possible de mettre en place des actions qui peuvent inciter des non-usagers actuels à expérimenter le vélo tout en respectant la sécurité de ceux-ci.</li>
+                                    <li>Intégrer les actions en faveur du vélo dans les démarches déjà existantes au sein de l’entreprise : la réduction de l’absentéisme, l’amélioration du bien-être des salariés, la réduction de l’empreinte carbone...</li>
+                                    <li>Communiquer sur le potentiel cycliste que l’outil “Guidons” vous a permis d’établir.</li>
+                                    <li>Si votre plan d’actions prend du temps à se définir, ne vous empêchait pas d’agir, proposer de commencer par des actions simples, peu coûteuses et ludiques : faire essayer des vélos, en particulier des VAE (vélo à assistance électrique), mettre à disposition du stationnement sécurisé.</li>
+                                    <li>Recherchez les financements mobilisables. Par exemple les sociétés qui mettent gratuitement à disposition de leurs salariés une flotte de vélos peuvent, sous certaines conditions, bénéficier d'une réduction d'impôt.</li>
+                                </ul>
+
+                                {% endif %}
+                                {% if players.recodir == '4'  %}
+                                <p><b class="c-yellow">Votre entreprise a déjà entreprise de nombreuses actions pour les cyclistes. <br>Avez-vous exploré les champs suivants ?</b></p>
+                                <ul>
+                                    <li>Ne réfléchissez plus uniquement en “part modale” mais en km parcourus à vélo. Cela vous incitera à convaincre des personnes ayant de plus grandes distances parcours (notamment en travaillant sur l’intermodalité ou grâce au VAE) et tenter d’augmenter le nombre de jours où les cyclistes viennent à vélo quand ce n’est pas tous les jours (IKV)</li>
+                                    <li>Individualiser vos actions. Par exemple en vous adressant spécifiquement aux parents qui souhaitent accompagner leur enfants à vélo à l’école avant de venir au travail : quels matériels choisir? Comment diriger son enfant lorsqu’il sait pédaler ?</li>
+                                    <li>Développer l’usage du vélo pour les déplacements professionnels : flotte de vélos pour des déplacements inter-sites, location de vélo remboursés dans les notes de frais, mise à disposition de vélo pliant utile pour le train...</li>
+                                    <li>Communiquer sur le potentiel de nouveaux cyclistes que l’outil “Guidons” vous a permis d’établir.</li>
                                 </ul>
 
                                 {% endif %}
@@ -137,39 +150,46 @@
                                 <h3>Pour <span class="c-lightgreen">vos salariés</span>,<br> recomendation [{{players.recosal}}] </h3>
                                 {% if players.recosal == '1' %}
                                 <div >
-                                <p>Vos salariés ont besoin de connaître <b class="c-yellow">les avantages du vélo </b>pour le bien être de leur porte monnaie, de leur santé et de la planète !</p>
-                                <p>Le saviez-vous ? 15 ! :  le coût moyen mensuel d’un vélo (source fubicy)</p>
+                                <p><b class="c-yellow">Les personnes les plus réfractaires au vélo ne sont pas forcément les plus sensibles aux arguments objectifs. Il faut donc les amener à s’interroger autrement&nbsp;:</b></p>
+                                <ul>
+                                    <li>Proposer des essais de vélos atypiques (vélo à assistance électrique, vélo couché, vélo cargo) qui sont ludiques et peuvent séduire instantanément.</li>
+                                    <li>Faites témoigner les cyclistes actuels sur leur pratique. La comparaison à un pair peut être très puissante en termes de changement d’habitudes.</li>
+                                    <li>Faites-en sorte que les membres de la Direction donne l’exemple, même occasionnellement.</li>
+                                </ul>
                                 </div>
                                 {% endif %}
                                 {% if players.recosal == '2' %}
                                 <div >
-                                <p><b class="c-yellow">Vos salariés ont besoin d'être rassurés sur la sécurité de leurs déplacements en vélos.</b>Leur rappeler également les avantages du vélo pour le bien être de leur porte monnaie, de leur santé et de la planète !</p>
-                                <p>voici quelques idées d'actions possibles :</p>
+                                <p><b class="c-yellow">Les salariés de votre structure ont besoin d’être rassurés, en particulier en matière de sécurité et de confort.</p>
+                                <p>Voici les principales actions à entreprendre pour ce profil de personne&nbsp;:</p>
                                 <ul>
-                                    <li>Identifier des salariés cyclistes du quotidien, ils seront les ambassadeurs vélo de votre entreprise !</li>
-                                    <li>Accompagner vos salariés sur des itinéraires de découverte vélos, sûrs et agréables, empruntant le plus possible des aménagements cyclables existants ou des voiries peu circulées</li>
-                                    <li>Distribuer des kits sécurité vélos</li>
+                                    <li>Identifier des salariés cyclistes du quotidien, ils seront les ambassadeurs vélo de votre entreprise et aideront les moins confiants à identifier un parcours sécurisé.</li>
+                                    <li>Proposer des séances de “remise en selle” pour ceux qui n’ont pas fait de vélo depuis longtemps ou qui ne sont pas à l’aise pour en faire en milieu urbain. Il existe une centaine de vélo-écoles en France qui proposent ce genre de services.</li>
+                                    <li>Proposer des stages d’apprentissage sur la mécanique vélo pour répondre à la question “comment faire si je crève en chemin ?”</li>
+                                    <li>Mettre à disposition du matériel de secours : des éclairages, des gilets fluorescents, des casques, des chambres à air, des antivols, des capes de pluie.</li>
                                 </ul>
                                 </div>
                                 {% endif %}
                                 {% if players.recosal == '3'  %}
                                 <div >
 
-                                <p><b class="c-yellow">Vos salariés ont besoin d'être accompagnés : </b> Certains pratiquent le vélo pour le loisir, alors pourquoi pas l'utiliser pour les déplacements domicile - travail ?</p>
-                                <p>Leur rappeler également les <b>avantages du vélo</b> pour le bien être de leur porte monnaie, de leur santé et de la planète !</p>
+                                <p><b class="c-yellow">De nombreux salariés de votre structure aime le vélo mais ne le pratique pas au quotidien.</p>
+                                <p>Voici quelques actions pour renforcer cette pratique&nbsp;:</p>
                                 <ul>
-                                    <li>Identifier des salariés cyclistes du quotidien, ils seront les ambassadeurs vélo de votre entreprise !</li>
-                                    <li>Accompagner vos salariés sur des itinéraires de découverte vélos, sûrs et agréables, empruntant le plus possible des aménagements cyclables existants ou des voiries peu circulées</li>
-                                    <li>Inciter les salariés à utiliser le vélo en leur proposant des avantages financiers : l'indemnité kilométrique vélo, l'aide à l'achat pour des vélos à assistance électrique ou d'autres vélos spéciaux (vélos pliants, vélos cargos...)</li>
+                                    <li>Rappeler tous les avantages du vélo : pour le porte-monnaie (économie d’environ 0.15 € / km par rapport à une véhicule motorisé moyen), la santé et la planète.</li>
+                                    <li>Identifier des salariés cyclistes du quotidien, ils seront les ambassadeurs vélo de votre entreprise et aideront les moins confiants à identifier un parcours sécurisé.</li>
+                                    <li>Répéter les temps d’essais et d’expérimentations collectifs : essais de vélos à assistance électrique, challenge “sans voiture” pour se rendre au travail.</li>
+                                    <li>Proposer des avantages financiers : l'indemnité kilométrique vélo ou l'aide à l'achat de vélos.</li>
                                 </ul>
                                 </div>
                                 {% endif %}
                                 {% if players.recosal == '4'  %}
                                 <div >
-                                <p><b class="c-yellow">Vos salariés ont besoin d’être encouragés dans leur pratique quotidienne du vélo&nbsp;:</b></p>
+                                <p><b class="c-yellow">Vous avez déjà un grand nombre de cyclistes dans votre structure. Il faut les fidéliser.</b></p>
                                 <ul>
-                                    <li><b>L’IKV</b> (Indemnité Kilométrique Vélo) est une bonne solution pour fidéliser les cyclistes occassionnels&nbsp;!<br><br><b>L’IKV</b> permet d’augmenter la pratique&nbsp;!<br><br>Vous pouvez d’ailleurs simuler l’impact de l’IKV avec le lien suivant&nbsp;:<br><br><a class="Wysiwyg-link" href="http://www.villes-cyclables.org/modules/kameleon/upload/ikv_outil_budget_vf.xls">www.villes-cyclables.org/modules/kameleon/upload/ikv_outil_budget_vf.xls</a></li>
-                                    <li><b>L’aide à l’achat de vélos spéciaux</b> (vélos à assistance électrique, vélos pliants, vélos cargos&hellip;) peuvent permettre à vos salariés d’adapter leur vélo à leurs besoins du moment&nbsp;!<br><br>Adapter son vélo en fonction de sa vie personnelle et professionnelle, c’est fidèliser la pratique&nbsp;!</li>
+                                    <li><b>L'IKV</b>&nbsp;(Indemnité Kilométrique Vélo) est une bonne solution pour fidéliser les cyclistes occasionnels et peut augmenter leur fréquence d’usage du vélo.</li>
+                                    <li>L'accès à de vélos spéciaux (vélos à assistance électrique, vélos pliants, vélos cargos…) peuvent permettre à vos salariés d’adapter leur vélo à leurs besoins du moment.<br>Adapter son vélo en fonction de sa vie personnelle et professionnelle, c’est fidéliser la pratique&nbsp;! Ces vélos peuvent être mis à disposition au sein de votre entreprise ou vous pouvez aussi aider les achats personnels.</li>
+                                    <li>Encourager la pratique du vélo tout au long de l’année en proposant et en conseillant les cyclistes sur les équipements nécessaires et efficaces en cas de pluie, de froid mais aussi de chaleur.</li>
                                 </ul>
                                 <p></p>
                                 </div>
@@ -181,31 +201,42 @@
 
                             <div class="Wysiwyg">
                                 <h3>Pour <span class="c-lightgreen">votre plan mobilité</span>,<br> recomendation [{{players.recopde}}]</h3>
+
                                 {% if players.recopde == '1' %}
                                 <div >
-                                <p><b class="c-yellow">L'utilisation des modes alternatifs à la voiture individuelle, et notamment du vélo, est un cercle vertueux ! </b></p>
-                                <p>L'entreprise, le salarié, la collectivité, tout le monde est gagnant ; <br>Alors n'hésitez plus, lancez vous dans un plan de mobilité ! </p>
+                                <p><b class="c-yellow">Encourager les modes alternatifs à la voiture solo ne semble pas être dans la culture de votre entreprise.</b></p>
+                                <p>et pourtant :</p>
                                 <ul>
-                                    <li>Améliorez les déplacements domicile - travail de vos salariés ! </li>
-                                    <li>Optimisez vos déplacements professionnels ! </li>
-                                    <li>Agissez pour votre politique environnementale et développement durable !</li>
-
-
+                                    <li>Si vous êtes une entreprise de plus de 100 salariés sur un périmètre où il existe un PDU (Plan de Déplacements Urbains), la mise en place d’un Plan de mobilité est obligatoire.</li>
+                                    <li>Si vous n’êtes pas dans ce cas mais que vous avez une position volontariste en matière de développement durable, n'imaginez pas un Plan de mobilité comme une “usine à gaz”. Consultez-nous pour établir une démarche à la portée de vos moyens humains et financiers. L'idée est d’identifier les modes de déplacement où vous aurez une chance de faire évoluer les habitudes le plus rapidement.</li>
+                                    <li>Si vous êtes en milieu rural, certaines solutions sont à creuser et à adapter à votre cas : covoiturage, vélo, navette mutualisée, travail à distance.</li>
                                 </ul>
-                                <p>Si vous êtes une entreprise de plus de 100 salariés et que vous êtes localisée sur un territoire qui a un PLAN DE DEPLACEMENTS URBAINS vous devez réaliser un PDM</p>
                                 </div>
                                 {% endif %}
                                 {% if players.recopde == '2' %}
                                 <div >
-                                <p><b class="c-yellow">Votre plan de mobilité est en cours :</b></p>
-                                <p>Les actions pour le vélo sont au cœur d'une démarche de développement durable L'entreprise, le salarié, la collectivité, tout le monde est gagnant</p>
+                                <p><b class="c-yellow">Vous réfléchissez à mettre en œuvre votre Plan de Mobilité. Voilà ce qui est essentiel au démarrage :</b></p>
+                                <ul>
+                                    <li>Mobiliser les personnes ressources clés pour construire votre Plan de mobilité : Direction, services RH, services communication, chargé.e Développement Durable ou RSE.</li>
+                                    <li>Faire appel à un conseiller mobilité local ou un bureau d’études pour pouvoir présenter une démarche structurée à votre Direction.</li>
+                                    <li>Analysant les habitudes de déplacement via une enquête et analyser vos marges de manœuvre précisément pour vous fixer des objectifs de “report modal” à court et moyen termes. Intégrer ces objectifs à votre Politique Développement Durable / RSE.</li>
+                                    <li>Concentrez-vous sur le changement d’habitudes des salariés les plus motivés qui ensuite entraîneront progressivement l’ensemble des salariés.</li>
+                                </ul>
                                 </div>
                                 {% endif %}
                                 {% if players.recopde == '3'  %}
                                 <div >
-                                <p><b class="c-yellow">Bravo, votre Plan de Mobilité est acté ! </b></p>
-                                <p>La mise en place concrète des actions est à venir : la qualité de la communication et de l'animation est un paramètre essentiel de l'efficacité de vos actions !</p>
-                                <p>Vos actions sont à déclencher au bon moment : le printemps et l'automne, avec une météo clémente est un bon moment pour promouvoir le vélo ! Une information au plus proche de vos salariés est à privilégier, sur un ton encourageant et ludique (bof-bof)</p>
+                                <p><b class="c-yellow">Bravo, votre Plan de Mobilité est en place ! Mais vous pouvez trouver un nouveau souffle ou de nouvelles idées d’actions :</b></p>
+                                <ul>
+                                    <li>Construisez des actions plus individualisées et spécifiques à chaque profil : les réfractaires, les hésitants, les habitués etc...</li>
+                                    <li>Déployer vos actions plus amplement sur le champ des déplacements professionnels ou des déplacements du midi, qui sont souvent les parents pauvres des Plans de mobilité.</li>
+                                    <li>Traiter la question de l’accompagnement des enfants un frein évoqué pour en moyenne 30% des effectifs.</li>
+                                    <li>Construisez un vrai plan de communication avec des campagnes de communication saisonnières.</li>
+                                    <li>Evaluer plus précisément votre Plan de mobilité et ses impacts. Quel est votre ratio report modal à l’euros investi ?</li>
+                                    <li>Reconnecter la question de la mobilité au plan stratégique de l’entreprise : productivité, bien-être au travail, diminution des risques.</li>
+                                </ul>
+
+
                                 </div>
                                 {% endif %}
                             </div>
@@ -219,99 +250,3 @@
             </section>
    
 {% endblock %}
-
- <div class="post">
-        {% if players.published_date %}
-            <div class="date">
-                {{ players.published_date }}
-            </div>
-        {% endif %}
-        
-        <h2>ScoreMoyen : <span class="big">{{ players.score}} !</span></h2>
-        <p>Bonjour <span class="big">{{ players.nom}} !</span>  <br>Sur {{ players.nbsal}} salariés, votre entreprise {{palyers.entrep}} peux compter sur environ <span class = "big">{{players.pvelo}}</span> cyclistes.</p>
-        <hr>
-        <p>Selon nos estimations, la mise en place de l'IKV vous permetrait d'élever ce chiffre à <br><span class = "big">{{players.evocycliste}} cyclistes</span> la première année !</p>
-        <p>Cela représente près de {{players.evoar}} trajets Domicile / Travail réalisés à vélo.<br> ({{players.evoarp}} trajets, en fonction de l'accessibilité à votre site) pour un total de </p>
-        <p><span class="big">{{players.distance}} kilomètres</span> parcourus en 12 mois.<br>({{players.distmoy}}km en moyenne par cycliste)</p>
-        <p>soit un cout total de <span class="big">{{players.coutdist}} €</span> hors plafond</p>
-        <p><span class="big">{{players.coutpt}} €</span> avec un plafond de 200 € par salaré.</p>
-        <hr>
-        <h1>Actions a mettre en oeuvre pour le développement du vélo :</h1>
-        <div>
-            <h3>Recommandations Direction : </h3>
-            {% if players.recodir == '1' %}
-            <div >
-            <p>Actions de sensibilisation fortes à mettre en place auprès de la direction</p>
-            </div>
-            {% endif %}
-            {% if players.recodir == '2' %}
-            <div >
-            <p>Actions pour conforter la motivation de la direction</p>
-            </div>
-            {% endif %}
-            {% if players.recodir == '3'  %}
-            <div >
-            <p>Direction OK</p>
-            </div>
-            {% endif %}
-        </div>
-        <div>
-            <h3>Recommandations Salariés : </h3>
-            {% if players.recosal == '1' %}
-            <div >
-            <p>Un playdoyer actif doit être mis en place auprès des salariés</p>
-            </div>
-            {% endif %}
-            {% if players.recosal == '2' %}
-            <div >
-            <p>Il faut conforter la motivation de vos salariés !</p>
-            <ul>
-                <li>Mettre en place des actions d'information et sensibilisation</li>
-                <li>Remise en selle</li>
-            </ul>
-            </div>
-            {% endif %}
-            {% if players.recosal == '3'  %}
-            <div >
-            <p>Encourager l'utilisation quotidienne du vélo !</p>
-            <ul>
-                <li>Aménagements sur le site (parking vélo, douches, ...)</li>
-                <li>Mise en place de l'IKV</li>
-                <li>Référent vélo</li>
-            </ul>
-            </div>
-            {% endif %}
-            {% if players.recosal == '4'  %}
-            <div >
-            <p>Vous êtes les meilleurs ! </p>
-            </div>
-            {% endif %}
-        </div>
-        <div>
-            <h3>Recommandation PDM : </h3>
-            {% if players.recopde == '1' %}
-            <div >
-            <p>Argumentaire en amont d'une démarche de PDM</p>
-            </div>
-            {% endif %}
-            {% if players.recopde == '2' %}
-            <div >
-            <p>Solutions d'accompagnement accompagner dans la réalisations d'actions déja envisagées</p>
-            <ul>
-                <li>puce 1</li>
-                <li>puce 2</li>
-            </ul>
-            </div>
-            {% endif %}
-            {% if players.recopde == '3'  %}
-            <div >
-            <p>Des idées pour dynamiser un PDM existant</p>
-            <ul>
-                <li>puce 1</li>
-                <li>puce 2</li>
-            </ul>
-            </div>
-            {% endif %}
-        </div>
-        
-    </div>
