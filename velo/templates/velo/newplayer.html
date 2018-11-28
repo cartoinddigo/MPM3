@@ -1,4 +1,5 @@
     {% extends 'velo/index.html' %}
+    {% load staticfiles %}
 
 {% block content %}
 
@@ -17,6 +18,9 @@
                             <div class="Form-group-item">
                             <div class="Form-control">
                             <div class="Form-field">
+                            <div  style="text-align:center">
+                            <img src="{% static 'css/assets/media/svgs/sal.svg'%}" alt="Logo Sal" width="60" height="60">
+                                </div>
                             <div class="Form-label">Nombre de salariés sur votre site</div>                             
                             <p class="Form-control">{{form.nbsal}}</p>
                             </div>
@@ -24,6 +28,9 @@
 
                             <div class="Form-control">
                             <div class="Form-field">
+                                                            <div  style="text-align:center">
+                            <img src="{% static 'css/assets/media/svgs/salvelo.svg'%}" alt="Logo Sal" width="60" height="60">
+                                </div>
                             <div class="Form-label">A combien estimez-vous la part de salariés venant travailler à vélo&nbsp;?</div>
                             <p class="Form-control">{{form.pccycliste}}</p>
                             </div>
@@ -50,14 +57,21 @@
                             <div class="Form-group-item">
                             <div class="Form-control">
                             <div class="Form-field">
+                                <div  style="text-align:center">
+                            <img src="{% static 'css/assets/media/svgs/city.svg'%}" alt="Logo pan" width="65" height="65">
+                                </div>
                             <p class="Form-label">Le context géographique de votre site</p>
                             <p class="Form-control">{{form.ctxgeolib}}</p>
                             </div>
                             </div>
 
                             <div class="Form-control">
+
                             <div class="Form-field">
-                            <p class="Form-label">Comment qualifiez-vous son accessibilité à vélo, de votre lieu de travail&nbsp;?<br><i>(aménagement cyclable, relief, parking à vélo&hellip;)</i></p>
+                                <div  style="text-align:center">
+                            <img src="{% static 'css/assets/media/svgs/pan.svg'%}" alt="Logo pan" width="65" height="65">
+                                </div>
+                            <p class="Form-label">Comment qualifiez-vous son accessibilité à vélo, de votre lieu de travail&nbsp;?<br><i>(trafic routier, aménagement cyclable, relief...)</i></p>
                             <p class="Form-control"> {{form.access}}</p>
                             </div>
                             </div>

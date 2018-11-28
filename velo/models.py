@@ -10,7 +10,7 @@ class Player(models.Model):
 
 
 
-    CTX_GEO_LIB = ((4.9, 'Centre ville ou urbain'),(1.7, 'Périurbain'),(1.5, 'Rural'),(2.2, 'Moyenne nationale'),) # suprimer moyenne nationale
+    CTX_GEO_LIB = ((4.9, 'Centre ville ou urbain'),(1.7, 'Périurbain'),(1.5, 'Rural'),) # suprimer moyenne nationale
     ACC_LIB = (('bonne','bonne' ),('moyenne','moyenne'),('mauvaise','mauvaise'))
     FREQF_LIB = ((5, 'moins de 1 jour'),(15, '1 jour'),(35, '2 jours'),(65, '3 jours'),(80, '4 jours'),(100, '5 jours'),)
 
