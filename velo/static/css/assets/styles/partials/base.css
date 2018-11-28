@@ -277,7 +277,7 @@ select,
 textarea {
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid;
+  /*border: 1px solid;*/
   border-radius: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
