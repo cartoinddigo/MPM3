@@ -1,0 +1,16 @@
+{% extends 'action/index.html' %}
+
+{% block content %}
+<section class="Section-inner">
+        <div>
+        <ul>
+
+            {% for site in sites %}
+            <li><a href="{% url 'site_detail' pk=site.pk %}">{{ site.nom }}</a> - <a href="{% url 'delete_site' pk=site.pk %}">del</a></li>
+            {% endfor %}
+
+        </ul>
+
+        </div>
+    </section>
+{% endblock %}

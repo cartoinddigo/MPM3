@@ -1,0 +1,33 @@
+{% extends 'action/index.html' %}
+
+{% block content %}
+<section class="Section-inner">
+    <div>
+        <p>Nom de fiche : <br>{{ action.nomfiche}}</p>
+        <p>Catégorie d'enjeux : <br>{{ action.catenjeux}}</p>
+        <p>Code couleur : <br>{{ action.codecouleur}}</p>
+        <p>Numéro de fiche : <br>{{ action.numfiche}}</p>
+        <p>Typologie d'action : <br>{{ action.typeaction}}</p>
+        <p>Constat : <br>{{ action.constat}}</p>
+        <p>Objectif : <br>{{ action.objectif}}</p>
+        <p>Cible : <br>{{ action.ccible}}</p>
+        <p>Moyens pour atteindre l'objectif : <br>{{ action.objmoyen}}</p>
+        <p>Facteurs de réussite : <br>{{ action.factreu}}</p>
+        <p>Porteur de l'action : <br>{{ action.porteur}}</p>
+        <p>Intervenants potentiels : <br>{{ action.intervenant}}</p>
+        <p>Planning : <br>{{ action.planning}}</p>
+        <p>Impacts: facilité de mise en œuvre, innovation et image du territoire, économie de CO2 réalisée, amélioration du climat social,  moyens financiers et humains à mettre en œuvre : <br>{{ action.impacts}}</p>
+        <p>Indicateurs : <br>{{ action.indicateurs}}</p>
+        <p>Périodicité de relevé des indicateurs : <br>{{ action.indicateurs_tp}}</p>
+        <p>Coût d'investissement détail : <br>{{ action.cinvestdet}}</p>
+        <p>Coût d'investissement chiffré : <br>{{ action.cinvestchi}}</p>
+        <p>Coûts de fonctionnement détail : <br>{{ action.cfonctiondet}}</p>
+        <p>Coût de fonctionnement chiffré : <br>{{ action.cfonctionchi}}</p>
+        <p>Priorité  : <br>{{ action.periodicite}}</p>
+        <p>Pour aller plus loin : <br>{{ action.tellmemore}}</p>
+        
+        
+
+    </div>
+</section>
+{% endblock %}

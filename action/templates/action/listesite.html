@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Title</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="action/">Liste d'entreprises</a></h1>
+        </div>
+
+        <div>
+            {% for site in res %}
+            <ul>
+                <li>{{site.nom}}</li>
+            </ul>
+            
+            {% endfor %}
+        </div>
+
+
+    </body>
+</html>
+

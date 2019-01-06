@@ -7,5 +7,6 @@ urlpatterns = [
 	url(r'^player/(?P<pk>[0-9]+)/$', views.detailsplayer, name='detailsplayer'),
 	url(r'^player/nouveau/$', views.newplayer, name='newplayer'),
 	url(r'^player/liste/$', views.listeplayers, name='listeplayers'),
+	url(r'^player/liste/export/', views.excsv, name='excsv'),
 
 ]

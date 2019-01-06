@@ -1,0 +1,13 @@
+{% extends 'action/index.html' %}
+
+{% block content %}
+<section class="Section-inner">
+        <div>
+    <h1>New post</h1>
+    <form action="{% url 'nouveau_site' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+{% endblock %}
