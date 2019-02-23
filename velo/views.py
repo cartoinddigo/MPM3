@@ -19,6 +19,9 @@ def detailsplayer(request, pk):
 def home(request):
 	return render(request, 'velo/home.html', {})
 
+def rgpd(request):
+	return render(request, 'velo/RGPD.html', {})
+
 def ihome(request):
 	return render(request, 'doc/guidons/index.html', {})
 

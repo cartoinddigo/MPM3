@@ -19,7 +19,7 @@ class Player(models.Model):
     MG3=((10, 'Inexistant'),(50, 'En réflexion'),(100, 'Actif'),)
     MG4=((10, 'Aucune action envisagée'),(50, 'Actions vélos en réflexion'),(100, 'Actions vélos mises en place'),)
 
-    PCY=((3, 'Moins de 5 %'),(20,'Environ un quart'),(55, 'Environ la moitié'),(80,'Plus de la moitié'),(50,'Ne sais pas estimer'))
+    PCY=((3, 'moins de 3%'),(5,'entre 3 et 5%'),(8, 'entre 5 et 8%'),(55, 'Environ la moitié'),(80,'Plus de la moitié'),(50,'Ne sais pas estimer'))
 
 
 
