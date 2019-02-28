@@ -14,12 +14,12 @@ class Player(models.Model):
     ACC_LIB = (('bonne','Bonne' ),('moyenne','Moyenne'),('mauvaise','Mauvaise'))
     FREQF_LIB = ((5, 'moins de 1 jour'),(15, '1 jour'),(35, '2 jours'),(65, '3 jours'),(80, '4 jours'),(100, '5 jours'),)
 
-    MG1=((2, 'Réticent'),(25, 'Non sensibilisé'),(45, 'Sensibilisé'),(75, 'Motivé'),(100, 'Impliqué et acteur'),)
-    MG2=((10, 'Réfractaire aux vélos'),(25, 'Sensibilisé mais pas confiant'),(45, 'Usager ponctuel pour le loisir'),(75, 'Usager quotidien'),(100, 'Cycliste expert'),)
+    MG1=((2, 'Réticents'),(25, 'Non sensibilisés'),(45, 'Sensibilisés'),(75, 'Motivés'),(100, 'Impliqués et acteurs'),)
+    MG2=((10, 'Réfractaires aux vélos'),(25, 'Sensibilisés mais pas confiants'),(45, 'Usagers ponctuels pour le loisir'),(75, 'Usagers au quotidien'),(100, 'Cyclistes experts'),)
     MG3=((10, 'Inexistant'),(50, 'En réflexion'),(100, 'Actif'),)
     MG4=((10, 'Aucune action envisagée'),(50, 'Actions vélos en réflexion'),(100, 'Actions vélos mises en place'),)
 
-    PCY=((3, 'moins de 3%'),(5,'entre 3 et 5%'),(8, 'entre 5 et 8%'),(55, 'Environ la moitié'),(80,'Plus de la moitié'),(50,'Ne sais pas estimer'))
+    PCY=((3, 'Moins de 3%'),(5,'Entre 3 et 5%'),(8, 'Entre 5 et 8%'),(55, 'Environ la moitié'),(80,'Plus de la moitié'),(50,'Ne sais pas estimer'))
 
 
 
