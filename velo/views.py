@@ -1,11 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect, reverse
 from django.utils import timezone
-
+from django.conf import settings
 from .models import Player
 from .forms import PlayerForm
 import csv
 from django.http import HttpResponse
+from weasyprint import HTML, CSS
+from django.template.loader import get_template
+
+from django.template import RequestContext
 
 
 
@@ -19,6 +23,19 @@ def detailsplayer(request, pk):
 	players = get_object_or_404(Player, pk=pk)
 	return render(request, 'velo/detailsplayer.html', {'players':players})
 
+
+def pdfdetailsplayer(request, pk):
+	html_template = get_template('velo/pdfdetailsplayer.html')
+	players = get_object_or_404(Player, pk=pk)
+	rendered_html = html_template.render(RequestContext(request, {'players': players})).encode(encoding="UTF-8")
+	pdf_file = HTML(string=rendered_html).write_pdf(stylesheets=[CSS(settings.STATIC_ROOT +  'css/velo.css')])
+	http_response = HttpResponse(pdf_file, content_type='application/pdf')
+	http_response['Content-Disposition'] = 'filename="Guidons.pdf"'
+
+
+
+	return response
+	
 
 def home(request):
 	return render(request, 'velo/home.html', {})
