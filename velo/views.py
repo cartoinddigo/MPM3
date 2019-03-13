@@ -1,10 +1,16 @@
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect, reverse
 from django.utils import timezone
+
 from .models import Player
 from .forms import PlayerForm
 import csv
 from django.http import HttpResponse
+#Pour export pdf
+from django.template.loader import render_to_string
+from weasyprint import HTML
+import tempfile
+
 
 
 def listeplayers(request):
@@ -15,6 +21,27 @@ def listeplayers(request):
 def detailsplayer(request, pk):
 	players = get_object_or_404(Player, pk=pk)
 	return render(request, 'velo/detailsplayer.html', {'players':players})
+
+def pdfdetailsplayer(request, pk):
+	# Model data
+	players = get_object_or_404(Player, pk=pk)
+
+	# Rendered
+	html_string = render_to_string('velo/detailsplayer.html', {'players': players})
+	html = HTML(string=html_string)
+	result = html.write_pdf()
+
+	# Creating http response
+	response = HttpResponse(content_type='application/pdf;')
+	response['Content-Disposition'] = 'inline; filename=preconisation_guidons.pdf'
+	response['Content-Transfer-Encoding'] = 'binary'
+
+	with tempfile.NamedTemporaryFile(delete=True) as output:
+		output.write(result)
+		output.flush()
+		output = open(output.name, 'r')
+		response.write(output.read())
+	return response
 
 def home(request):
 	return render(request, 'velo/home.html', {})
