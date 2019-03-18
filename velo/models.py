@@ -38,7 +38,7 @@ class Player(models.Model):
     access = models.CharField(default='Bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",max_length=10)
     ctxgeolib = models.FloatField(choices=CTX_GEO_LIB,default='Centre-ville',verbose_name = "Contexte geographique")
 
-    PM = models.IntegerField(default = 0, verbose_name = "Part Modale vélo Attendue (Pour débugages)",)
+    #PM = models.IntegerField(default = 0, verbose_name = "Part Modale vélo Attendue (Pour débugages)",)
 
     g1 = models.IntegerField(choices=MG1,verbose_name = "Motivation de la direction de l’entreprise")
     g2 = models.IntegerField(choices=MG2,verbose_name = "Motivation des salariés")
