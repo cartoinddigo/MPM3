@@ -7,8 +7,8 @@ from .forms import PlayerForm
 import csv
 from django.http import HttpResponse
 from weasyprint import HTML, CSS
-from django.template.loader import get_template
-
+from django.template.loader import get_template, render_to_string
+import tempfile
 from django.template import RequestContext
 
 
@@ -24,16 +24,26 @@ def detailsplayer(request, pk):
 	return render(request, 'velo/detailsplayer.html', {'players':players})
 
 
+# def pdfdetailsplayer(request, pk):
+# 	html_template = get_template('velo/pdfdetailsplayer.html')
+# 	players = get_object_or_404(Player, pk=pk)
+# 	rendered_html = html_template.render(RequestContext(request, {'players': players})).encode(encoding="UTF-8")
+# 	pdf_file = HTML(string=rendered_html).write_pdf()
+# 	http_response = HttpResponse(pdf_file, content_type='application/pdf')
+# 	http_response['Content-Disposition'] = 'filename="Guidons.pdf"'
+# 	return response
+
 def pdfdetailsplayer(request, pk):
-	html_template = get_template('velo/pdfdetailsplayer.html')
 	players = get_object_or_404(Player, pk=pk)
-	rendered_html = html_template.render(RequestContext(request, {'players': players})).encode(encoding="UTF-8")
-	pdf_file = HTML(string=rendered_html).write_pdf(stylesheets=[CSS(settings.STATIC_ROOT +  'css/velo.css')])
-	http_response = HttpResponse(pdf_file, content_type='application/pdf')
-	http_response['Content-Disposition'] = 'filename="Guidons.pdf"'
 
+	html_string = render_to_string('velo/pdfdetailsplayer.html', {'players': players})
+	html = HTML(string=html_string)
+	result = html.write_pdf()
 
-
+	response = HttpResponse(result, content_type='application/pdf')
+	response['Content-Disposition'] = 'inline; filename="Guidons.pdf"'
+	response['Content-Transfer-Encoding'] = 'binary'
+	
 	return response
 	
 
