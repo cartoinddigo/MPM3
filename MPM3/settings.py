@@ -25,7 +25,7 @@ SECRET_KEY = 'kvkgngs0$fx2q^a3!%1##n22%10)w@(!1ku86u-jvltc6t!pzo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'cartoinddigo.pythonanywhere.com', 'velo.inddigo.com', '192.168.1.68',]
+ALLOWED_HOSTS = ['127.0.0.1', 'guidons.inddigo.com',]
 
 
 # Application definition
