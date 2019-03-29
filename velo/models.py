@@ -2,6 +2,10 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils import timezone
 from math import *
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
 
 
 
@@ -11,7 +15,7 @@ class Player(models.Model):
 
 
     CTX_GEO_LIB = ((4.9, 'Centre ville ou urbain'),(1.7, 'Périurbain ou zone d\'activités'),(1.5, 'Rural'),) # suprimer moyenne nationale
-    ACC_LIB = (('bonne','Bonne' ),('moyenne','Moyenne'),('mauvaise','Mauvaise'))
+    ACC_LIB = ((3,'Bonne' ),(2,'Moyenne'),(1,'Mauvaise'))
     FREQF_LIB = ((5, 'moins de 1 jour'),(15, '1 jour'),(35, '2 jours'),(65, '3 jours'),(80, '4 jours'),(100, '5 jours'),)
 
     MG1=((2, 'Réticents'),(25, 'Non sensibilisés'),(45, 'Sensibilisés'),(75, 'Motivés'),(100, 'Impliqués et acteurs'),)
@@ -19,7 +23,7 @@ class Player(models.Model):
     MG3=((10, 'Inexistant'),(50, 'En réflexion'),(100, 'Actif'),)
     MG4=((10, 'Aucune action envisagée'),(50, 'Actions vélos en réflexion'),(100, 'Actions vélos mises en place'),)
 
-    PCY=((3, 'Moins de 3%'),(5,'Entre 3 et 5%'),(8, 'Entre 5 et 8%'),(55, 'Environ la moitié'),(80,'Plus de la moitié'),(50,'Ne sais pas estimer'))
+    PCY=((2, 'Moins de 3%'),(4,'Entre 3 et 5%'),(7, 'Entre 5 et 8%'),(15, 'Environ 15 %'),(25, 'Environ 25 %'),(50,'Plus de 25 %'),)
 
 
 
@@ -35,7 +39,7 @@ class Player(models.Model):
     #freq = models.IntegerField(default=65,choices=FREQF_LIB,verbose_name = "fréquence d'utilisation")
     #freq = models.PositiveIntegerField(default = 65, validators=[MinValueValidator(0), MyMaxValueValidator(100,"The value should be lesser than %(limit_value)s.")], verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
     dist = models.IntegerField(default = 3, verbose_name = "Distance Domicile travail moyenne des cyclistes de votre entreprise",)
-    access = models.CharField(default='Bonne',choices=ACC_LIB,verbose_name = "Accessibilite du site",max_length=10)
+    access = models.IntegerField(default=3,choices=ACC_LIB,verbose_name = "Accessibilite du site")
     ctxgeolib = models.FloatField(choices=CTX_GEO_LIB,default='Centre-ville',verbose_name = "Contexte geographique")
 
     #PM = models.IntegerField(default = 0, verbose_name = "Part Modale vélo Attendue (Pour débugages)",)
@@ -79,11 +83,75 @@ class Player(models.Model):
         self.moy = ((self.notegeo + self.noteacces + self.notefreq +  self.g1 + self.g2 + self.g3 +self.g4 )/700) #+ self.g4
         return self.moy
 
+    # def pvelo(self):
+    #     """Calcul du potentiel vélo avec une part modale mini de 3% et un part modale maxi de 30 %
+    #     selon la fonction y = 31.177.x-2.4684"""
+    #     pm = 34.177*self.score()-2.4684        
+    #     self.reusite =(self.nbsal /100 * pm)
+    #     return ceil(self.reusite)
+
     def pvelo(self):
-        """Calcul du potentiel vélo avec une part modale mini de 3% et un part modale maxi de 30 %
-        selon la fonction y = 31.177.x-2.4684"""
-        pm = 34.177*self.score()-2.4684        
-        self.reusite =(self.nbsal /100 * pm)
+        """Prédiction de la part modale vélo potentielle"""
+        # Charge les donnees de train dans panda
+        features = pd.read_csv('velo/train.csv', sep=';',)
+        # One-hot encode categorical features
+        features = pd.get_dummies(features)
+        # Labels are the values we want to predict
+        labels = np.array(features['PM'])
+        # Remove the labels from the features
+        # axis 1 refers to the columns
+        features= features.drop('PM', axis = 1)
+        # Saving feature names for later use
+        feature_list = list(features.columns)
+
+        # Convert to numpy array
+        features = np.array(features)
+
+        # Split the data into training and testing sets
+        train_features, test_features, train_labels, test_labels = train_test_split(features, labels, test_size = 0.05, random_state = 42)
+        # Instantiate model 
+        rf = RandomForestRegressor(n_estimators= 1000, 
+                                    max_depth=None,
+                                    min_samples_leaf=1,
+                                    min_samples_split=5,)
+        # Train the model on training data
+        rf.fit(train_features, train_labels)
+        # Use the forest's predict method on the test data
+        predictions = rf.predict(test_features)
+        # Calculate the absolute errors
+        errors = abs(predictions - test_labels)
+        # Calculate mean absolute percentage error (MAPE)
+        mape = 100 * (errors / test_labels)
+
+        # Calculate and display accuracy
+        accuracy = 100 - np.mean(mape)
+        print('Accuracy:', round(accuracy, 2), '%.')
+
+        # Compile les features du player dans un dic
+
+        
+
+        pm = rf.predict([[self.nbsal,
+                            self.access,
+                            self.ctxgeolib,
+                            self.pccycliste,
+                            self.g1,
+                            self.g2,
+                            self.g3,
+                            self.g4,
+                            ]])
+        
+        print (self.nbsal,
+                            self.access,
+                            self.ctxgeolib,
+                            self.pccycliste,
+                            self.g1,
+                            self.g2,
+                            self.g3,
+                            self.g4,
+                            )
+
+        self.reusite =(self.nbsal / 100*pm)
         return ceil(self.reusite)
 
     def paccess(self):
