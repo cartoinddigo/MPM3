@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 
-    'velo',
-    'action',
+    'velo', # Calculateurs de potentiel vélo
+    'action', # Générateur de fiches actions pour PDM
 
 ]
 
