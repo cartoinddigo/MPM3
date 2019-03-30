@@ -93,7 +93,7 @@ class Player(models.Model):
     def pvelo(self):
         """Prédiction de la part modale vélo potentielle"""
         # Charge les donnees de train dans panda
-        features = pd.read_csv('/velo/train.csv', sep=';',)
+        features = pd.read_csv('MPM3/velo/train.csv', sep=';',)
         # One-hot encode categorical features
         features = pd.get_dummies(features)
         # Labels are the values we want to predict
