@@ -93,7 +93,6 @@ def excsv(request):
         smart_str(u"g2"),
         smart_str(u"g3"),
 		smart_str(u"g4"),
-		smart_str(u"PM"),
 		smart_str(u"pvelo"),
 		smart_str(u"score"),
     ])
@@ -114,7 +113,6 @@ def excsv(request):
 			smart_str(p.g2),
 			smart_str(p.g3),
 			smart_str(p.g4),
-			smart_str(p.PM),
 			smart_str((p.pvelo()/p.nbsal)*100),
 			smart_str(p.score()),
 		])
