@@ -34,7 +34,7 @@ class Player(models.Model):
     mail = models.EmailField(verbose_name = "Votre email",)
 
     nbsal = models.PositiveIntegerField(verbose_name = "Nombre de salariés",)
-    pccycliste = models.PositiveIntegerField(choices=PCY,verbose_name = "NPourcentages cyclistes", default = '50',)
+    pccycliste = models.PositiveIntegerField(choices=PCY,verbose_name = "Pourcentages cyclistes", default = '50',)
     freq = 65
     #freq = models.IntegerField(default=65,choices=FREQF_LIB,verbose_name = "fréquence d'utilisation")
     #freq = models.PositiveIntegerField(default = 65, validators=[MinValueValidator(0), MyMaxValueValidator(100,"The value should be lesser than %(limit_value)s.")], verbose_name = "Fréquence moyenne de la pratique des cyclistes (en pourcentage de jours travaillés)",)
@@ -233,12 +233,12 @@ class Player(models.Model):
 
     	# calcul des paramètres :
 
-    	# plafond à 200
-    	p = 200 
-		# Distance pour atteindre les 200
+    	# plafond à 400 € par mois
+    	p = 400 
+		# Distance pour atteindre les 400
     	kmp = 0 
-    	if p > 200:
-    		kmp = 200/0.25
+    	if p > 400:
+    		kmp = 400/0.25
     	else:
     		kmp = p/0.25
 		# Distance réalisée hors plafond

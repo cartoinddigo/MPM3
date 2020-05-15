@@ -2,10 +2,22 @@
 
 {% block content %}
 	{% for player in players %}
-		<div class="Results-column">
-	    	<h1><a href="{% url 'detailsplayer' pk=player.pk %}">{{player.nom}}</a></h1>
-	    	<div class = "date">publié : {{ player.published_date}}</div>
-			<p>nb sal : {{ player.nbsal}}.</p>
+		<div>
+		<ul>
+	    	<li><h1><a href="{% url 'detailsplayer' pk=player.pk %}">{{player.nom}}</a></h1></li>
+	    	<li>Mail : {{player.mail}}</li>
+	    	<li class = "date">publié : {{player.published_date}}</li>
+	    	<li>Entreprise : {{player.entrep}}</li>
+	    	<li>Ville : {{player.ville}}</li>
+			<li>Nombre de salariés : {{player.nbsal}}</li>
+			<li>Pourcentage de cyclistes déclarés : {{player.pccycliste}}</li>
+			<li>Accessibilité du site déclarée : {{player.access}}</li>
+			<li>Contexte géographique déclaré : {{player.ctxgeolib}}</li>
+			<li>Motivation de la direction de l’entreprise déclarée : {{player.g1}}</li>
+			<li>Motivation des salariés déclarée : {{player.g2}}</li>
+			<li>Etat d'avancement du PDE déclaré : {{player.g3}}</li>
+			<li>Actions vélo déja mises en place : {{player.g4}}</li>
+		</ul>
 		</div>
 	{% endfor %}
 {% endblock %}
