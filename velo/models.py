@@ -233,12 +233,12 @@ class Player(models.Model):
 
     	# calcul des paramètres :
 
-    	# plafond à 400 € par mois
-    	p = 400 
-		# Distance pour atteindre les 400
+    	# plafond à 500 € par mois
+    	p = 500 
+		# Distance pour atteindre les 500
     	kmp = 0 
-    	if p > 400:
-    		kmp = 400/0.25
+    	if p > 500:
+    		kmp = 500/0.25
     	else:
     		kmp = p/0.25
 		# Distance réalisée hors plafond
